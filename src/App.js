@@ -3,6 +3,7 @@ import { Route, BrowserRouter as Router } from "react-router-dom";
 import './App.css';
 import Home from "./Home/Home";
 import Quiz from "./QuizPage";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 function App() {
   return (
