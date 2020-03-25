@@ -1,0 +1,29 @@
+.block__header-home, 
+.block__header-quiz {
+    width:100%;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.block__header-home {
+    justify-content: center;
+    align-items: center;
+    height: 20%;
+    text-align: center;
+}
+
+.block__header-quiz {
+    justify-content: space-between;
+    align-items: center;
+    height: 10%;
+}
+
+.block__header-home > figure > .block__header__logo {
+    margin-top: 20px;
+    width: 70%;
+}
+
+.block__header-quiz > figure > .block__header__logo {
+    margin-top: 10px;
+    width: 40%;
+}

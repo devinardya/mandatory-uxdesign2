@@ -1,0 +1,108 @@
+.block {
+    height: 100%;
+    width: 90%;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.block__section {
+    width: 100%;
+    height: 70%;
+    text-align: center;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.block__section > h3 {
+    font-size: 20px;
+    color: #737373;
+    width: 70%;
+    margin: 30px 0 0 0;
+    font-weight: normal;
+}
+
+.block__section__figures {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    margin: 25px 0;
+    position: relative;
+}
+
+.block__section__figures-input-fake {
+    margin: 20px;
+}
+
+.block__section__figures-input-fake > img{
+    transition: all .2s ease-in;
+    filter: opacity(100%);
+    filter: grayscale(50%);
+}
+
+.block__section__figures-input > input[type="radio"]{
+    clip: rect(0 0 0 0);
+    padding: 0;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    top: -2px;
+    left: -42px;
+    border:0;
+}
+
+.block__section__figures-input > input[type="radio"]:hover ~ .block__section__figures-input-fake > img,
+.block__section__figures-input > input[type="radio"]:focus ~ .block__section__figures-input-fake > img  {
+    transform: scale(1.1);
+    filter: opacity(100%);
+    filter: grayscale(0%);
+    cursor: pointer;
+}
+
+.block__section__figures-input > input[type="radio"]:checked ~ .block__section__figures-input-fake > img {
+    filter: grayscale(0%);
+    transform: scale(1.1);
+    filter: opacity(100%);
+}
+
+.block__section__submit {
+    margin: 10px 0 20px 0;
+    border: none;
+    width: 200px;
+    height: 40px;
+    color: #fff;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    background: linear-gradient(to right, #D56F85 50%, #EDA9A9 50%);
+    background-size: 200% 100%;
+    background-position: right bottom;
+    transition: all 0.5s ease-in;
+}
+
+.block__section__submit:hover {
+    background-position: left bottom;
+    cursor: pointer;
+}
+
+.block__footer {
+    z-index: 2;
+    color: #C85876;
+    font-size: 0.6rem;
+    width: 100%;
+    height: 5%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.block__footer__figure {
+    position: absolute;
+    bottom: -6px;
+    margin: 0;
+    z-index: 1;
+    width: 100%;
+}
