@@ -5,11 +5,11 @@ import Header from "./Header";
 import Footer from "./Footer";
 import QuizSection from "./QuizSection";
 
-const QuizPage = () => {
+const QuizPage = ({ location }) => {
     return <>
                 <main className="block">
                     <Header page="quiz"/>
-                    <QuizSection />
+                    <QuizSection category={location.state.category} />
                     <Footer />
                 </main>
                 <FooterImg />

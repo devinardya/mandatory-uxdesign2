@@ -5,9 +5,6 @@ import './header.css';
 
 class Header extends React.PureComponent {
 
-    constructor(props) {
-        super(props)
-    }
 
     render() {
 

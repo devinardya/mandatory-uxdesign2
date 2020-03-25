@@ -7,7 +7,7 @@ import FooterImg from "../FooterImg";
 
 const Home = () => {
     return  <>
-                <main className="block-home">
+                <main className="block">
                     <Header page="home"/>
                     <HomeSection />
                     <Footer />

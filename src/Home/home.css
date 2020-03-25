@@ -74,7 +74,7 @@
     border: none;
     width: 200px;
     height: 40px;
-    color: #fff;
+    color: #3a3a3a;
     border-radius: 30px;
     font-size: 0.8rem;
     background: linear-gradient(to right, #D56F85 50%, #EDA9A9 50%);
@@ -83,8 +83,9 @@
     transition: all 0.5s ease-in;
 }
 
-.block__section__submit:hover {
+.block__section__submit:hover, .block__section__submit:focus {
     background-position: left bottom;
+    color: #fff;
     cursor: pointer;
 }
 
