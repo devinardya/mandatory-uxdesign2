@@ -146,6 +146,13 @@
     transition: all 0.5s ease-in;
 }
 
+.block__section__next:focus, 
+.block__section__next:hover {
+    background-position: left bottom;
+    color: #fff;
+    cursor: pointer;
+}
+
 .block__section__prev {
     margin: 20px;
     border: none;
@@ -154,9 +161,18 @@
     color: #3a3a3a;
     border-radius: 30px;
     font-size: 0.8rem;
-    background: linear-gradient(to right, #B5B5B5 50%, #DBDBDB 50%);
+    /* background-color: #DBDBDB; */
+    background: linear-gradient(to right, #dbdbdb 50%, #b5b5b5 50%);
     background-size: 200% 100%;
-    background-position: right bottom;
-    position: relative;
+    background-position: left bottom;
+     position: relative;
     transition: all 0.5s ease-in;
+}
+
+.block__section__prev:hover, 
+.block__section__prev:focus {
+    background-position: right bottom;
+    /* background-color: #b5b5b5; */
+    color: #fff;
+    cursor: pointer;
 }

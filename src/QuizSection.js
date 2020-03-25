@@ -147,7 +147,7 @@ const QuizSection = ({category}) => {
                                 Prev Question
                             </button>
                         }
-                        <button className="block__section__next" onClick={nextQuestion}>
+                        <button className="block__section__next" onClick={selected ? nextQuestion : null}>
                             {currentPage === 10 ? "Check Answer" : "Next Question"}
                             <MdNavigateNext 
                                 size="24px" 
