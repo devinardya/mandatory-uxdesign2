@@ -47,32 +47,31 @@ const QuizSection = ({category}) => {
             updateLoaderActive(true);
             setTimeout( () => {
                 let copyData = [...response.data.results];
-            console.log(copyData)
-            let newDocuments = [];
-            let allCorrectAnswer = [];
+            
+                let newDocuments = [];
+                let allCorrectAnswer = [];
 
-            copyData.map(data => {
-                //console.log(data.incorrect_answers)
-                let answers = [...data.incorrect_answers, data.correct_answer];
-                let newAnswers = shuffle(answers);
+                copyData.map(data => {
+                    //console.log(data.incorrect_answers)
+                    let answers = [...data.incorrect_answers, data.correct_answer];
+                    let newAnswers = shuffle(answers);
 
-                let newData = {
-                    answers:  newAnswers,
-                    ...data,
-                }
-    
-                return newDocuments.push(newData);
-            })
+                    let newData = {
+                        answers: newAnswers,
+                        ...data,
+                    }
+        
+                     return newDocuments.push(newData);
+               })
 
-            copyData.map( data => {
-               return allCorrectAnswer.push(data.correct_answer)
-            })
+                copyData.map( data => {
+                return allCorrectAnswer.push(data.correct_answer)
+                })
 
                 updateCorrectAnswer(allCorrectAnswer);
                 updateLoaderActive(false);
                 updateQuizData(newDocuments);
             }, 2000)
-            //console.log(response.data.results);  
         })
         .catch(error => {
             console.log(error)
@@ -118,49 +117,37 @@ const QuizSection = ({category}) => {
         const resultCorrectAnswer = correctAnswer.filter(element => data.includes(element));
         console.log(resultCorrectAnswer)
         updateResult(resultCorrectAnswer.length)
-        //updateResultModalStatus(true);
+
     }, [playersAnswer, correctAnswer])
 
-    
- 
+
      const nextQuestion = () => {
 
         console.log("ITS ON NEXT");
-        
         let copyAnswers = [...playersAnswer]
-        if(!copyAnswers.includes(selected)) {
-            updatePlayerAnswer([...playersAnswer, selected])
-        } 
-        //updatePlayerAnswer([...copyAnswers, selected])
+
+        copyAnswers.splice(currentPage-1,1,selected)
+        updatePlayerAnswer(copyAnswers)
+
         if(currentPage !== 10){
             updateCurrentPage(currentPage+1)
         }
-
-        console.log(playersAnswer, currentPage)
         updateSelected(playersAnswer[currentPage])
+    }
 
-        
+    useEffect(() => {
 
-      }
+    if (currentPage === 10) {
+        checkAnswer(playersAnswer);
+    }
+    
+    }, [playersAnswer, checkAnswer, currentPage])
 
-      useEffect( () => {
-
-      }, [])
-
-      useEffect(() => {
-          "ON EACH PAGE"
-        //console.log(playersAnswer, currentPage)
-        if (currentPage === 10) {
-            checkAnswer(playersAnswer);
+    useEffect( () => {
+        if(playersAnswer.length === 10) {
+        updateResultModalStatus(true);
         }
-       
-      }, [playersAnswer, checkAnswer, currentPage])
-
-      useEffect( () => {
-          if(playersAnswer.length === 10) {
-            updateResultModalStatus(true);
-          }
-      }, [playersAnswer.length])
+    }, [playersAnswer.length])
   
 
     const prevQuestion = () => {
@@ -171,11 +158,11 @@ const QuizSection = ({category}) => {
         updateSelected(playersAnswer[currentPage-2])
     }
 
+    //PAGINATION ===========================================
     const indexOfLastData = currentPage * dataPerPage;
     const indexOfFirstData = indexOfLastData - dataPerPage;
     const currentData = quizData.slice(indexOfFirstData, indexOfLastData);
-/*     console.log(rightAnswer)
-    console.log(correctAnswer) */
+    // ======================================================================================
 
     return <>
             {loaderActive ? <Loader
@@ -183,12 +170,11 @@ const QuizSection = ({category}) => {
                 color="#00BFFF"
                 height={100}
                 width={100}
-                timeout={3000} //3 secs
+                timeout={3000}
                 /> : 
                 <section className = "block__section">
                     <h4>CATEGORY: {category.toUpperCase()}</h4>
                     {currentData.map((data, index) => {
-                        //console.log(currentData);
                         const entities = {
                             "&#039;": "'",
                             "&quot;": '"',
