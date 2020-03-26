@@ -36,7 +36,7 @@ const QuizSection = ({category}) => {
             cat = 11;
         }
 
-        let url = "https://opentdb.com/api.php?amount=10&category="+cat+"&difficulty=hard&type=multiple";
+        let url = "https://opentdb.com/api.php?amount=10&category="+cat+"&difficulty=medium&type=multiple";
         
         let source = axios.CancelToken.source();
 
@@ -121,6 +121,7 @@ const QuizSection = ({category}) => {
         //updateResultModalStatus(true);
     }, [playersAnswer, correctAnswer])
 
+    
  
      const nextQuestion = () => {
 
@@ -129,8 +130,7 @@ const QuizSection = ({category}) => {
         let copyAnswers = [...playersAnswer]
         if(!copyAnswers.includes(selected)) {
             updatePlayerAnswer([...playersAnswer, selected])
-
-        }  
+        } 
         //updatePlayerAnswer([...copyAnswers, selected])
         if(currentPage !== 10){
             updateCurrentPage(currentPage+1)
@@ -139,10 +139,17 @@ const QuizSection = ({category}) => {
         console.log(playersAnswer, currentPage)
         updateSelected(playersAnswer[currentPage])
 
+        
+
       }
 
+      useEffect( () => {
+
+      }, [])
+
       useEffect(() => {
-        
+          "ON EACH PAGE"
+        //console.log(playersAnswer, currentPage)
         if (currentPage === 10) {
             checkAnswer(playersAnswer);
         }
@@ -160,7 +167,7 @@ const QuizSection = ({category}) => {
         if(currentPage !== 1) {
             updateCurrentPage(currentPage-1)
         }
-       
+        console.log(playersAnswer, currentPage-2)
         updateSelected(playersAnswer[currentPage-2])
     }
 

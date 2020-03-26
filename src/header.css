@@ -27,3 +27,8 @@
     margin-top: 10px;
     width: 40%;
 }
+
+.block__header--nav:focus-within {
+    text-decoration: underline;
+    outline: 1px dashed #D56F85;
+}

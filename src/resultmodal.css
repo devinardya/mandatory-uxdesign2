@@ -55,7 +55,19 @@
     font-weight: bold;
 }
 
+.block__modalContainer__dialogBox > nav > button:hover {
+    background-color: rgb(177, 53, 80);
+}
+
+.block__modalContainer__dialogBox > nav > button:focus-within {
+    outline: 1px dashed rgb(202, 202, 202);
+}
+
 .block__modalContainer__dialogBox > nav > button:first-of-type {
     background-color: #EDA9A9;
+}
+
+.block__modalContainer__dialogBox > nav > button:first-of-type:hover {
+    background-color: rgb(202, 120, 120);
 }
 

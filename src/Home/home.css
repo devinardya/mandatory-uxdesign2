@@ -40,7 +40,7 @@
 .block__section__figures-input-fake > img{
     transition: all .2s ease-in;
     filter: opacity(100%);
-    filter: grayscale(50%);
+    filter: grayscale(70%);
 }
 
 .block__section__figures-input > input[type="radio"]{
@@ -65,7 +65,7 @@
 .block__section__figures-input > input[type="radio"]:focus ~ .block__section__figures-input-fake > img {
     transform: scale(1.1);
     filter: opacity(100%);
-    filter: grayscale(50%);
+    filter: grayscale(70%);
     cursor: pointer;
 }
 
