@@ -1,0 +1,61 @@
+/*bright blue = #1293D6, dark blue = #106BAC, orange = #F5A012*/
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap');
+
+* {
+    font-family: "Open Sans", sans-serif;
+}
+
+.block__modalContainer {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(225,225,225, 0.5);
+    position: absolute;
+    top:0;
+    
+}
+
+.block__modalContainer__dialogBox {
+    width: 40%;
+    height: 35%;
+    background-color: rgba(255, 255, 255);
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    border-radius: 40px;
+    -webkit-box-shadow: 0px 0px 21px 0px rgba(138,138,138,1);
+    -moz-box-shadow: 0px 0px 21px 0px rgba(138,138,138,1);
+    box-shadow: 0px 0px 21px 0px rgba(138,138,138,1);   
+}
+
+.block__modalContainer__dialogBox > h2 {
+    color: #C85876;
+    margin-bottom: 20px;
+}
+
+.block__modalContainer__dialogBox > h1 {
+    color: #C85876;
+    margin: 0;
+}
+
+.block__modalContainer__dialogBox > nav > button {
+    width: 166px;
+    height: 40px;
+    background-color: #D56F85;
+    margin: 30px 10px 0 10px;
+    border:none;
+    border-radius: 40px;
+    font-size: 0.7rem;
+    color: #fff;
+    font-weight: bold;
+}
+
+.block__modalContainer__dialogBox > nav > button:first-of-type {
+    background-color: #EDA9A9;
+}
+

@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import Loader from 'react-loader-spinner'
 import QuestionBox from './QuestionsBox';
+import ResultModal from './ResultModal';
 
 const QuizSection = ({category}) => {
 
@@ -10,8 +11,9 @@ const QuizSection = ({category}) => {
     const [playersAnswer, updatePlayerAnswer] = useState([]);
     const [currentPage, updateCurrentPage] = useState(1);
     const [loaderActive, updateLoaderActive] = useState(false);
-   /*  const [rightAnswer, updateRightAnswer] = useState(0); */
     const [correctAnswer, updateCorrectAnswer] = useState([]);
+    const [resultModalStatus, updateResultModalStatus] = useState(false);
+    const [result, updateResult] = useState(0);
     const dataPerPage = 1;
     
 
@@ -96,15 +98,13 @@ const QuizSection = ({category}) => {
    
 
     const checkAnswer = useCallback( (data) => {
-        /* let copyAnswers = [...playersAnswer]
-            if(!copyAnswers.includes(selected)) {
-                updatePlayerAnswer([...copyAnswers, selected])
-            }  
- */
+   
         console.log("checking answers!")
         console.log(playersAnswer)
         const intersection = correctAnswer.filter(element => data.includes(element));
         console.log(intersection)
+        updateResult(intersection.length)
+        //updateResultModalStatus(true);
     }, [playersAnswer, correctAnswer])
 
  
@@ -112,21 +112,16 @@ const QuizSection = ({category}) => {
 
         console.log("ITS ON NEXT");
         
-           
+        let copyAnswers = [...playersAnswer]
+        if(!copyAnswers.includes(selected)) {
+            updatePlayerAnswer([...playersAnswer, selected])
+            console.log(playersAnswer)
+        }  
+        //updatePlayerAnswer([...copyAnswers, selected])
+        if(currentPage !== 10){
+            updateCurrentPage(currentPage+1)
+        }
 
-            let copyAnswers = [...playersAnswer]
-            if(!copyAnswers.includes(selected)) {
-                updatePlayerAnswer([...playersAnswer, selected])
-                console.log(playersAnswer)
-            }  
-            //updatePlayerAnswer([...copyAnswers, selected])
-            if(currentPage !== 10){
-                updateCurrentPage(currentPage+1)
-            }
-
-            
-    
-           
       }
 
       useEffect(() => {
@@ -137,12 +132,20 @@ const QuizSection = ({category}) => {
        
       }, [playersAnswer, checkAnswer, currentPage])
 
+      useEffect( () => {
+          if(playersAnswer.length === 10) {
+            updateResultModalStatus(true);
+          }
+      }, [playersAnswer.length])
   
 
     const prevQuestion = () => {
         if(currentPage !== 1) {
             updateCurrentPage(currentPage-1)
         }
+
+        console.log(playersAnswer)
+        updateSelected(playersAnswer[currentPage])
     }
 
     const indexOfLastData = currentPage * dataPerPage;
@@ -187,6 +190,7 @@ const QuizSection = ({category}) => {
                             />
                         )
                 })}
+                {resultModalStatus && <ResultModal result={result} />}
             </section>
             }
         </>
