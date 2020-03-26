@@ -18,10 +18,10 @@ const Create = ({result, handleModal}) => {
 	return ReactDOM.createPortal(
 		<div className="block__modalContainer">
             <div className = "block__modalContainer__dialogBox">
-                <h2>CONGRATULATION</h2>
+                <h2>{result !== 0 ? "CONGRATULATION" : "OOPPS!!"}</h2>
                 <h5>You answered</h5>
                 <h1>{result}/10</h1>
-                <h5>{result === 1 ? "question correct" : "questions correct"}</h5>
+                <h5>{result <= 1 ? "question correct" : "questions correct"}</h5>
                 <nav>
                     <button>Play again</button>
                     <button onClick={backToHome}>Back to home</button>

@@ -55,11 +55,17 @@
     border:0;
 }
 
-.block__section__figures-input > input[type="radio"]:hover ~ .block__section__figures-input-fake > img,
-.block__section__figures-input > input[type="radio"]:focus ~ .block__section__figures-input-fake > img  {
+.block__section__figures-input > input[type="radio"]:hover ~ .block__section__figures-input-fake > img {
     transform: scale(1.1);
     filter: opacity(100%);
     filter: grayscale(0%);
+    cursor: pointer;
+}
+
+.block__section__figures-input > input[type="radio"]:focus ~ .block__section__figures-input-fake > img {
+    transform: scale(1.1);
+    filter: opacity(100%);
+    filter: grayscale(50%);
     cursor: pointer;
 }
 
@@ -80,6 +86,7 @@
     background: linear-gradient(to right, #D56F85 50%, #EDA9A9 50%);
     background-size: 200% 100%;
     background-position: right bottom;
+    font-weight: bold;
     transition: all 0.5s ease-in;
 }
 

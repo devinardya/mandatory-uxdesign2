@@ -15,7 +15,6 @@ const QuizSection = ({category}) => {
     const [resultModalStatus, updateResultModalStatus] = useState(false);
     const [result, updateResult] = useState(0);
     const dataPerPage = 1;
-    
 
     const onChange = (data) => {
         console.log(data)
@@ -37,8 +36,13 @@ const QuizSection = ({category}) => {
             cat = 11;
         }
 
+        let url = "https://opentdb.com/api.php?amount=10&category="+cat+"&difficulty=hard&type=multiple";
+        
+        let source = axios.CancelToken.source();
 
-        axios.get("https://opentdb.com/api.php?amount=10&category="+cat+"&difficulty=hard&type=multiple")
+        axios.get( url,
+                   {cancelToken: source.token} 
+                   )
         .then(response => {
             updateLoaderActive(true);
             setTimeout( () => {
@@ -69,7 +73,15 @@ const QuizSection = ({category}) => {
                 updateQuizData(newDocuments);
             }, 2000)
             //console.log(response.data.results);  
+        })
+        .catch(error => {
+            console.log(error)
         }) 
+
+        return () => {
+            
+            source.cancel("canceling in cleanup")
+        }
     }, [updateQuizData, category ])
 
    useEffect(
@@ -78,9 +90,13 @@ const QuizSection = ({category}) => {
 
     useEffect( () => {
         activateLoader(true);
-        setTimeout( () => {
+        const activeLoad = setTimeout( () => {
             activateLoader(false);
         },3000)
+
+        return () => {
+            clearTimeout(activeLoad);
+        }
     }, [])
     
     const shuffle = (array) => {
@@ -95,15 +111,13 @@ const QuizSection = ({category}) => {
         return array;
     }
 
-   
-
     const checkAnswer = useCallback( (data) => {
    
         console.log("checking answers!")
         console.log(playersAnswer)
-        const intersection = correctAnswer.filter(element => data.includes(element));
-        console.log(intersection)
-        updateResult(intersection.length)
+        const resultCorrectAnswer = correctAnswer.filter(element => data.includes(element));
+        console.log(resultCorrectAnswer)
+        updateResult(resultCorrectAnswer.length)
         //updateResultModalStatus(true);
     }, [playersAnswer, correctAnswer])
 
@@ -115,17 +129,20 @@ const QuizSection = ({category}) => {
         let copyAnswers = [...playersAnswer]
         if(!copyAnswers.includes(selected)) {
             updatePlayerAnswer([...playersAnswer, selected])
-            console.log(playersAnswer)
+
         }  
         //updatePlayerAnswer([...copyAnswers, selected])
         if(currentPage !== 10){
             updateCurrentPage(currentPage+1)
         }
 
+        console.log(playersAnswer, currentPage)
+        updateSelected(playersAnswer[currentPage])
+
       }
 
       useEffect(() => {
-        console.log({playersAnswer})
+        
         if (currentPage === 10) {
             checkAnswer(playersAnswer);
         }
@@ -143,9 +160,8 @@ const QuizSection = ({category}) => {
         if(currentPage !== 1) {
             updateCurrentPage(currentPage-1)
         }
-
-        console.log(playersAnswer)
-        updateSelected(playersAnswer[currentPage])
+       
+        updateSelected(playersAnswer[currentPage-2])
     }
 
     const indexOfLastData = currentPage * dataPerPage;

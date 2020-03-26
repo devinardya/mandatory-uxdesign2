@@ -1,21 +1,28 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import './quizpage.css';
 import { MdNavigateNext, MdNavigateBefore } from 'react-icons/md';
 
-const QuestionBox = ({data, selected, entities, nextQuestion, prevQuestion, currentPage, index, onChange, playersAnswer}) => {
+const QuestionBox = ({data, selected, entities, nextQuestion, prevQuestion, currentPage, index, onChange}) => {
 
-  
+    const inputRef = useRef(null);
+    
+    useEffect( () => {
+        inputRef.current.focus();
+    },[])
+
     const onChangeProps = (e) => {
         onChange(e.target.value)
     }
 
     return <>
-            <div className="block__section__questionBox" key={index}>
+            <div className="block__section__questionBox" key={index}  >
                 <h3>{data.question.replace(/&#?\w+;/g, match => entities[match])}</h3>
-                <div className="block__section__questionBox-answers">
+                <div className="block__section__questionBox-answers" >
                     {data.answers.map((answer, idx)=> {
                         return <label className={selected === answer ? "block__section__questionBox-answers-indiv-checked" : "block__section__questionBox-answers-indiv"} 
-                                        key={idx} >
+                                        key={idx} 
+                                        ref={inputRef}
+                                        >
                                     <input type="radio" name="answers" checked={selected === answer} value={answer} onChange={onChangeProps}  />
                                     <span className="block__section__questionBox-answers-indiv-fakedisplay"></span>
                                     {answer.replace(/&#?\w+;/g, match => entities[match])}

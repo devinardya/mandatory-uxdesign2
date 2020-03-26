@@ -47,6 +47,7 @@
     margin: 10px 0;
     padding: 10px 10px 10px 60px;
     width: 100%;
+    border: 1px dashed transparent;
 /*     background-color: #F7E4E8; */
     border-radius: 30px;
     position: relative;
@@ -59,6 +60,18 @@
 
 .block__section__questionBox-answers-indiv:hover {
     background-position: left bottom;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+.block__section__questionBox-answers-indiv:focus-within
+ {
+    outline: 1px dashed #D56F85;
+    cursor: pointer;
+}
+
+.block__section__questionBox-answers-indiv-checked:focus-within {
+    outline: 1px dashed rgb(202, 202, 202);
     cursor: pointer;
 }
 
@@ -67,6 +80,7 @@
     padding: 10px 10px 10px 60px;
     width: 100%;
 /*     background-color: #F7E4E8; */
+    border: 1px dashed transparent;
     border-radius: 30px;
     position: relative;
     text-align: left;
@@ -116,8 +130,7 @@
 
 .block__section__questionBox-answers-indiv > input[type="radio"]:checked ~ .block__section__questionBox-answers-indiv-fakedisplay::before,
 .block__section__questionBox-answers-indiv-checked > input[type="radio"]:checked ~ .block__section__questionBox-answers-indiv-fakedisplay::before,
-.block__section__questionBox-answers-indiv > input[type="radio"]:hover ~ .block__section__questionBox-answers-indiv-fakedisplay::before,
-.block__section__questionBox-answers-indiv > input[type="radio"]:focus ~ .block__section__questionBox-answers-indiv-fakedisplay::before
+.block__section__questionBox-answers-indiv > input[type="radio"]:hover ~ .block__section__questionBox-answers-indiv-fakedisplay::before
  {
     content: "radio_button_checked";
     color: #D56F85;
@@ -153,9 +166,6 @@
     cursor: pointer;
 }
 
-.block__section__next:focus {
-    border: 1px solid #C85876;
-}
 
 .block__section__prev {
     margin: 20px;
@@ -180,6 +190,7 @@
     cursor: pointer;
 }
 
-.block__section__prev:focus {
-    border: 1px solid #b5b5b5 ;
+.block__section__prev:focus-within,
+.block__section__next:focus-within {
+    outline: 1px dashed rgb(180, 180, 180);
 }
