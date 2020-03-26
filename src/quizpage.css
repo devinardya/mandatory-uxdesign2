@@ -146,11 +146,15 @@
     transition: all 0.5s ease-in;
 }
 
-.block__section__next:focus, 
+ 
 .block__section__next:hover {
     background-position: left bottom;
     color: #fff;
     cursor: pointer;
+}
+
+.block__section__next:focus {
+    border: 1px solid #C85876;
 }
 
 .block__section__prev {
@@ -169,10 +173,13 @@
     transition: all 0.5s ease-in;
 }
 
-.block__section__prev:hover, 
-.block__section__prev:focus {
+.block__section__prev:hover {
     background-position: right bottom;
     /* background-color: #b5b5b5; */
     color: #fff;
     cursor: pointer;
+}
+
+.block__section__prev:focus {
+    border: 1px solid #b5b5b5 ;
 }

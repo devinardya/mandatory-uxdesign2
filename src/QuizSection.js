@@ -1,20 +1,23 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import Loader from 'react-loader-spinner'
-import { MdNavigateNext, MdNavigateBefore } from 'react-icons/md';
+import QuestionBox from './QuestionsBox';
 
 const QuizSection = ({category}) => {
 
     const [selected, updateSelected] = useState("");
     const [quizData, updateQuizData] = useState([]);
+    const [playersAnswer, updatePlayerAnswer] = useState([]);
     const [currentPage, updateCurrentPage] = useState(1);
     const [loaderActive, updateLoaderActive] = useState(false);
+   /*  const [rightAnswer, updateRightAnswer] = useState(0); */
+    const [correctAnswer, updateCorrectAnswer] = useState([]);
     const dataPerPage = 1;
     
 
-    const onChange = (e) => {
-        console.log(e.target.value)
-        updateSelected(e.target.value)
+    const onChange = (data) => {
+        console.log(data)
+        updateSelected(data)
         
     }
 
@@ -40,7 +43,8 @@ const QuizSection = ({category}) => {
                 let copyData = [...response.data.results];
             console.log(copyData)
             let newDocuments = [];
-   
+            let allCorrectAnswer = [];
+
             copyData.map(data => {
                 //console.log(data.incorrect_answers)
                 let answers = [...data.incorrect_answers, data.correct_answer];
@@ -53,6 +57,12 @@ const QuizSection = ({category}) => {
     
                 return newDocuments.push(newData);
             })
+
+            copyData.map( data => {
+               return allCorrectAnswer.push(data.correct_answer)
+            })
+
+                updateCorrectAnswer(allCorrectAnswer);
                 updateLoaderActive(false);
                 updateQuizData(newDocuments);
             }, 2000)
@@ -83,11 +93,51 @@ const QuizSection = ({category}) => {
         return array;
     }
 
-    const nextQuestion = () => {
-        if(currentPage !== 10) {
-            updateCurrentPage(currentPage+1)
-        }
+   
+
+    const checkAnswer = useCallback( (data) => {
+        /* let copyAnswers = [...playersAnswer]
+            if(!copyAnswers.includes(selected)) {
+                updatePlayerAnswer([...copyAnswers, selected])
+            }  
+ */
+        console.log("checking answers!")
+        console.log(playersAnswer)
+        const intersection = correctAnswer.filter(element => data.includes(element));
+        console.log(intersection)
+    }, [playersAnswer, correctAnswer])
+
+ 
+     const nextQuestion = () => {
+
+        console.log("ITS ON NEXT");
+        
+           
+
+            let copyAnswers = [...playersAnswer]
+            if(!copyAnswers.includes(selected)) {
+                updatePlayerAnswer([...playersAnswer, selected])
+                console.log(playersAnswer)
+            }  
+            //updatePlayerAnswer([...copyAnswers, selected])
+            if(currentPage !== 10){
+                updateCurrentPage(currentPage+1)
+            }
+
+            
+    
+           
       }
+
+      useEffect(() => {
+        console.log({playersAnswer})
+        if (currentPage === 10) {
+            checkAnswer(playersAnswer);
+        }
+       
+      }, [playersAnswer, checkAnswer, currentPage])
+
+  
 
     const prevQuestion = () => {
         if(currentPage !== 1) {
@@ -98,6 +148,8 @@ const QuizSection = ({category}) => {
     const indexOfLastData = currentPage * dataPerPage;
     const indexOfFirstData = indexOfLastData - dataPerPage;
     const currentData = quizData.slice(indexOfFirstData, indexOfLastData);
+/*     console.log(rightAnswer)
+    console.log(correctAnswer) */
 
     return <>
             {loaderActive ? <Loader
@@ -110,8 +162,7 @@ const QuizSection = ({category}) => {
                 <section className = "block__section">
                     <h4>CATEGORY: {category.toUpperCase()}</h4>
                     {currentData.map((data, index) => {
-                        console.log(currentData);
-                        
+                        //console.log(currentData);
                         const entities = {
                             "&#039;": "'",
                             "&quot;": '"',
@@ -120,44 +171,22 @@ const QuizSection = ({category}) => {
                             "&amp;": "&",
                             "&uuml;": "ü"
                         };
-                        return <div className="block__section__questionBox" key={index}>
-                                    <h3>{data.question.replace(/&#?\w+;/g, match => entities[match])}</h3>
-                                    <div className="block__section__questionBox-answers">
-                                        {data.answers.map((answer, idx)=> {
-                                            return <label className={selected === answer ? "block__section__questionBox-answers-indiv-checked" : "block__section__questionBox-answers-indiv"} 
-                                                            key={idx} >
-                                                        <input type="radio" name="answers" checked={selected === answer} value={answer} onChange={onChange}  />
-                                                        <span className="block__section__questionBox-answers-indiv-fakedisplay"></span>
-                                                        {answer}
-                                                    </label>
-                                        })}
-                                    </div>
-                                </div>  
-                    })}
-                    <div className="block__section__changePage">
-                        {currentPage === 1 ? null : 
-                            <button className="block__section__prev" onClick={prevQuestion}>
-                                <MdNavigateBefore 
-                                    size="24px" 
-                                    style={{ position: "absolute",
-                                            top: "50%",
-                                            transform: "translate(-100%, -50%)"
-                                            }} 
-                                />
-                                Prev Question
-                            </button>
-                        }
-                        <button className="block__section__next" onClick={selected ? nextQuestion : null}>
-                            {currentPage === 10 ? "Check Answer" : "Next Question"}
-                            <MdNavigateNext 
-                                size="24px" 
-                                style={{ position: "absolute",
-                                        top: "50%",
-                                        transform: "translate(0, -50%)"
-                                        }} />
-                        </button>
-                    </div>  
-                
+                        return (
+                            <QuestionBox 
+                                key= {index}
+                                entities = {entities}
+                                data = {data}
+                                index = {index}
+                                selected = {selected}
+                                prevQuestion = {prevQuestion}
+                                nextQuestion = {nextQuestion}
+                                currentPage = {currentPage}
+                                onChange = {onChange}
+                                checkAnswer = {checkAnswer}
+                                playersAnswer= {playersAnswer}
+                            />
+                        )
+                })}
             </section>
             }
         </>
