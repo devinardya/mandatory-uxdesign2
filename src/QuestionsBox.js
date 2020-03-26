@@ -15,7 +15,7 @@ const QuestionBox = ({data, selected, entities, nextQuestion, prevQuestion, curr
     }
 
     return <>
-            <div className="block__section__questionBox" key={index}  >
+            <div className="block__section__questionBox" key={index} >
                 <h3>{data.question.replace(/&#?\w+;/g, match => entities[match])}</h3>
                 <div className="block__section__questionBox-answers" >
                     {data.answers.map((answer, idx)=> {

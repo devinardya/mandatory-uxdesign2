@@ -63,7 +63,7 @@ const QuizSection = ({category}) => {
         
                      return newDocuments.push(newData);
                })
-
+               console.log(copyData);
                 copyData.map( data => {
                 return allCorrectAnswer.push(data.correct_answer)
                 })
@@ -154,9 +154,10 @@ const QuizSection = ({category}) => {
         if(currentPage !== 1) {
             updateCurrentPage(currentPage-1)
         }
-        console.log(playersAnswer, currentPage-2)
+       
         updateSelected(playersAnswer[currentPage-2])
     }
+
 
     //PAGINATION ===========================================
     const indexOfLastData = currentPage * dataPerPage;
@@ -181,7 +182,9 @@ const QuizSection = ({category}) => {
                             "&ntilde;": "ñ",
                             "&eacute;": "é",
                             "&amp;": "&",
-                            "&uuml;": "ü"
+                            "&uuml;": "ü",
+                            "&ldquo" : "“",
+
                         };
                         return (
                             <QuestionBox 
@@ -199,7 +202,13 @@ const QuizSection = ({category}) => {
                             />
                         )
                 })}
-                {resultModalStatus && <ResultModal result={result} />}
+                {resultModalStatus && <ResultModal result={result} 
+                                                   getData={getData}
+                                                   updateQuizData = {updateQuizData}
+                                                   updatePlayerAnswer = {updatePlayerAnswer}
+                                                   updateCurrentPage = {updateCurrentPage}
+                                                   updateResultModalStatus = {updateResultModalStatus}
+                                                   />}
             </section>
             }
         </>

@@ -51,6 +51,7 @@
     border: 1px dashed transparent;
     border-radius: 30px;
     position: relative;
+    line-height: 1.5rem;
     text-align: left;
     background: linear-gradient(to right, #F7E4E8 50%, #E0E0E0  50%);
     background-size: 200% 100%;
@@ -81,6 +82,7 @@
     width: 100%;
     border: 1px dashed transparent;
     border-radius: 30px;
+    line-height: 1.5rem;
     position: relative;
     text-align: left;
     background: #F7E4E8 ;
@@ -117,7 +119,8 @@
     display: block;
     border-radius: 50%;
     position: absolute;
-    top:5px;
+    top:50%;
+    transform: translateY(-50%);
     left: 10px;
     font-family: 'Material Icons';
     content: 'radio_button_unchecked';
@@ -139,7 +142,7 @@
     width: 65%;
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 }
 
