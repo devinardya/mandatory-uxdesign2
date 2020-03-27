@@ -102,14 +102,18 @@
     font-size: 0.6rem;
     width: 100%;
     height: 5%;
-    align-items: center;
+    align-items: flex-end;
     display: flex;
     justify-content: center;
 }
 
+.block__footer > p {
+    margin-bottom: 5px;
+}
+
 .block__footer__figure {
     position: absolute;
-    bottom: -6px;
+    bottom: -9px;
     margin: 0;
     z-index: 1;
     width: 100%;

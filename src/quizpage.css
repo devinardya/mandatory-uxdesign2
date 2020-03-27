@@ -31,8 +31,9 @@
 }
 
 .block__section__questionBox > h3 {
-    margin-bottom: 40px;
+    margin-bottom: 10px;
     width: 65%;
+    height: 90px;
 }
 
 .block__section__questionBox-answers {
@@ -57,7 +58,7 @@
     background-size: 200% 100%;
     background-position: right bottom;
     transition: all 0.5s ease-in;
-}
+} 
 
 .block__section__questionBox-answers-indiv:hover {
     background-position: left bottom;
@@ -142,7 +143,7 @@
     width: 65%;
     display: flex;
     flex-flow: row wrap;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -184,6 +185,18 @@
     background-position: left bottom;
      position: relative;
     transition: all 0.5s ease-in;
+}
+
+.block__section__prev:disabled {
+    margin: 20px;
+    border: none;
+    width: 200px;
+    height: 40px;
+    visibility: hidden;
+}
+
+.block__section__prev:disabled:hover {
+    cursor:auto;
 }
 
 .block__section__prev:hover {

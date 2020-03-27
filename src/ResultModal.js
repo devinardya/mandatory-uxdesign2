@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
+import Loader from 'react-loader-spinner'
 import './resultmodal.css';
 import FocusTrap from 'focus-trap-react';
 import { Redirect } from 'react-router-dom';
@@ -11,7 +12,18 @@ const Create = ({ result,
                   updateCurrentPage,
                   updateResultModalStatus
                 }) => {
-	const [backHome, updateBackHome] = useState(false);
+    const [backHome, updateBackHome] = useState(false);
+    const [loadingLoader, updateLoadingLoader] = useState(true);
+
+    useEffect( () => {
+        const timer = setTimeout( () => {
+            updateLoadingLoader(false)
+        }, 1000)
+
+        return () => {
+            clearTimeout(timer);
+        }
+    }, [])
 
     const backToHome = () => {
         updateBackHome(true);
@@ -31,20 +43,32 @@ const Create = ({ result,
     }
 
 	return ReactDOM.createPortal(
-        <FocusTrap>
+        
             <div className="block__modalContainer">
-                <div className = "block__modalContainer__dialogBox" role="dialog" aria-labelledby="dialog1Title" aria-describedby="dialog1Desc">
-                    <h2 id="dialog1Title">{result !== 0 ? "CONGRATULATION" : "OOPPS!!"}</h2>
-                    <h5 id="dialog1Desc">You answered</h5>
-                    <h1 id="dialog1Desc">{result}/10</h1>
-                    <h5 id="dialog1Desc">{result <= 1 ? "question correct" : "questions correct"}</h5>
-                    <nav>
-                        <button onClick={restartGame}>Play again</button>
-                        <button onClick={backToHome}>Back to home</button>
-                    </nav>
-                </div>
+                {loadingLoader ? 
+                    <Loader
+                        type="CradleLoader"
+                        color="#00BFFF"
+                        height={100}
+                        width={100}
+                        timeout={3000}
+                    />
+                    :
+                    <FocusTrap>
+                        <div className = "block__modalContainer__dialogBox" role="dialog" aria-labelledby="dialog1Title" aria-describedby="dialog1Desc">
+                            <h2 id="dialog1Title">{result !== 0 ? "CONGRATULATION" : "OOPPS!!"}</h2>
+                            <h5 id="dialog1Desc">You answered</h5>
+                            <h1 id="dialog1Desc">{result}/10</h1>
+                            <h5 id="dialog1Desc">{result <= 1 ? "question correct" : "questions correct"}</h5>
+                            <nav>
+                                <button onClick={restartGame}>Play again</button>
+                                <button onClick={backToHome}>Back to home</button>
+                            </nav>
+                        </div>
+                    </FocusTrap>
+                }
             </div>
-        </FocusTrap>,
+        ,
 		document.body
 	);
 };

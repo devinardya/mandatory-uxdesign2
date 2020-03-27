@@ -28,7 +28,7 @@ class Header extends React.PureComponent {
                                     className="block__header__logo" 
                                 />
                             </figure>
-                            <Link to="/" className="block__header--nav" style={{textDecoration:"none", fontSize: "16px", color:"#737373", padding:"5px      "}}>HOME</Link>
+                            <Link to="/" className="block__header--nav">HOME</Link>
                         </header>
         }
   

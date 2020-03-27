@@ -21,7 +21,7 @@
 
 .block__modalContainer__dialogBox {
     width: 40%;
-    height: 35%;
+    height: 37%;
     background-color: rgba(255, 255, 255);
     display: flex;
     flex-flow: column wrap;
@@ -57,6 +57,7 @@
 
 .block__modalContainer__dialogBox > nav > button:hover {
     background-color: rgb(177, 53, 80);
+    cursor: pointer;
 }
 
 .block__modalContainer__dialogBox > nav > button:focus-within {
@@ -69,5 +70,6 @@
 
 .block__modalContainer__dialogBox > nav > button:first-of-type:hover {
     background-color: rgb(202, 120, 120);
+    cursor: pointer;
 }
 

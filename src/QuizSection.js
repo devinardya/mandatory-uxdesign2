@@ -144,8 +144,9 @@ const QuizSection = ({category}) => {
     }, [playersAnswer, checkAnswer, currentPage])
 
     useEffect( () => {
-        if(playersAnswer.length === 10) {
-        updateResultModalStatus(true);
+
+        if(playersAnswer.length === 10) {   
+            updateResultModalStatus(true);
         }
     }, [playersAnswer.length])
   
@@ -183,8 +184,9 @@ const QuizSection = ({category}) => {
                             "&eacute;": "é",
                             "&amp;": "&",
                             "&uuml;": "ü",
-                            "&ldquo" : "“",
-
+                            "&ldquo;" : "“",
+                            "&hellip;": "…",
+                            "&rdquo;" : "”",
                         };
                         return (
                             <QuestionBox 
@@ -202,7 +204,7 @@ const QuizSection = ({category}) => {
                             />
                         )
                 })}
-                {resultModalStatus && <ResultModal result={result} 
+                { resultModalStatus && <ResultModal result={result} 
                                                    getData={getData}
                                                    updateQuizData = {updateQuizData}
                                                    updatePlayerAnswer = {updatePlayerAnswer}
