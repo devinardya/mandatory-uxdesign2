@@ -33,5 +33,27 @@
 .block__stats > article > p {
     color: #D56F85;
     font-size: 2rem;
-    margin: 10px 0 40px 0;
+    margin: 10px 0 25px 0;
+}
+
+.block__stats--button > button {
+    margin: 20px;
+    border: none;
+    width: 200px;
+    height: 40px;
+    color: #3a3a3a;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 0.8rem;
+    background: linear-gradient(to right, #D56F85 50%, #EDA9A9 50%);
+    background-size: 200% 100%;
+    background-position: right bottom;
+    position: relative;
+    transition: all 0.5s ease-in;
+}
+
+.block__stats--button > button:hover {
+    background-position: left bottom;
+    color: #fff;
+    cursor: pointer;
 }
