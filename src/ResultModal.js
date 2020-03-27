@@ -10,7 +10,7 @@ const Create = ({ result,
                   updateQuizData, 
                   updatePlayerAnswer,
                   updateCurrentPage,
-                  updateResultModalStatus
+                  updateResultModalStatus,
                 }) => {
     const [backHome, updateBackHome] = useState(false);
     const [loadingLoader, updateLoadingLoader] = useState(true);
@@ -23,7 +23,8 @@ const Create = ({ result,
         return () => {
             clearTimeout(timer);
         }
-    }, [])
+    }, []);
+
 
     const backToHome = () => {
         updateBackHome(true);

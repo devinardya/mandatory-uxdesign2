@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
-import Loader from 'react-loader-spinner'
+import Loader from 'react-loader-spinner';
+import { playedGames$, updatePlayedGames, correctPercentage$, correctAnswers$, incorrectAnswers$, updateCorrectAnswersStat, updateIncorrectAnswersStat, updateCorrectPercentage } from './store';
 import QuestionBox from './QuestionsBox';
 import ResultModal from './ResultModal';
 
@@ -12,15 +13,59 @@ const QuizSection = ({category}) => {
     const [currentPage, updateCurrentPage] = useState(1);
     const [loaderActive, updateLoaderActive] = useState(false);
     const [correctAnswer, updateCorrectAnswer] = useState([]);
+    const [incorrectAnswerStat, updateIncorrAnsState] = useState(incorrectAnswers$.value);
+    const [correctAnswerStat, updateCorrAnsState] = useState(correctAnswers$.value); 
+    const [playedGamesStat, updateGames] = useState(playedGames$.value);
+    const [correctPercentStat, updateCorrectPercentageStat] = useState(correctPercentage$.value)
     const [resultModalStatus, updateResultModalStatus] = useState(false);
     const [result, updateResult] = useState(0);
     const dataPerPage = 1;
+    
+  //PAGINATION ===========================================
+    const indexOfLastData = currentPage * dataPerPage;
+    const indexOfFirstData = indexOfLastData - dataPerPage;
+    const currentData = quizData.slice(indexOfFirstData, indexOfLastData);
+    // ======================================================================================
 
     const onChange = (data) => {
         console.log(data)
         updateSelected(data)
         
     }
+
+    useEffect(() => {
+        const subscribe = playedGames$.subscribe(games => {
+            updateGames(games);
+        })
+
+        return () => subscribe.unsubscribe();
+    }, []);
+
+    useEffect(() => {
+        const subscribe = correctAnswers$.subscribe(corrAns => {
+            updateCorrAnsState(corrAns);
+        })
+
+        return () => subscribe.unsubscribe();
+    }, []);
+
+    useEffect(() => {
+        const subscribe = incorrectAnswers$.subscribe(inCorrAns => {
+            console.log('woho, i am here', inCorrAns)
+            updateIncorrAnsState(inCorrAns);
+        })
+
+        return () => subscribe.unsubscribe();
+    }, []); 
+
+    useEffect(() => {
+        const subscribe = correctPercentage$.subscribe(corrPercent => {
+            updateCorrectPercentageStat(corrPercent);
+        })
+
+        return () => subscribe.unsubscribe();
+    }, []); 
+
 
     const activateLoader = (status) => {
         updateLoaderActive(status);
@@ -110,20 +155,8 @@ const QuizSection = ({category}) => {
         return array;
     }
 
-    const checkAnswer = useCallback( (data) => {
-   
-        console.log("checking answers!")
-        console.log(playersAnswer)
-        const resultCorrectAnswer = correctAnswer.filter(element => data.includes(element));
-        console.log(resultCorrectAnswer)
-        updateResult(resultCorrectAnswer.length)
-
-    }, [playersAnswer, correctAnswer])
-
-
      const nextQuestion = () => {
 
-        console.log("ITS ON NEXT");
         let copyAnswers = [...playersAnswer]
 
         copyAnswers.splice(currentPage-1,1,selected)
@@ -135,21 +168,48 @@ const QuizSection = ({category}) => {
         updateSelected(playersAnswer[currentPage])
     }
 
-    useEffect(() => {
+    const checkAnswer = () => {
+          //console.log("checking answers!")
+          console.log('roaor')
+        //console.log(playersAnswer)
+        const resultCorrectAnswer = correctAnswer.filter(element => playersAnswer.includes(element));
+        //console.log(resultCorrectAnswer)
+        updateResult(resultCorrectAnswer.length);
+        console.log("correct answer stat")
 
-    if (currentPage === 10) {
-        checkAnswer(playersAnswer);
+        // SAVING DATA TO LOCAL STORAGE
+            // CORRECT ANSWER STAT
+        let copyCorrAns = correctAnswerStat;
+        copyCorrAns += resultCorrectAnswer.length;
+        updateCorrectAnswersStat(copyCorrAns);
+        console.log('roaor3')
+
+            // INCORRECT ANSWER STAT  
+       
+        let copyInCorrAns = incorrectAnswerStat;
+        let iTemp = 10 - resultCorrectAnswer.length;
+        copyInCorrAns += parseInt(iTemp);
+        updateIncorrectAnswersStat(copyInCorrAns);
+        console.log('roaor3')
+
+            // GAME STAT
+        console.log(playedGamesStat);  
+        let copyPlayedGames = playedGamesStat;
+        copyPlayedGames++;
+        updatePlayedGames(copyPlayedGames)
+        console.log('roaor4')
+
+            // CORRECT PERCENTAGE
+        console.log(correctPercentStat);  
+        let copyCorrPercent = correctPercentStat;
+        copyCorrPercent = ((copyCorrAns / (copyPlayedGames*10)) * 100)
+        updateCorrectPercentage(copyCorrPercent.toFixed(2))
+
+        updateResultModalStatus(true);
+        console.log('roaor5')
+
     }
-    
-    }, [playersAnswer, checkAnswer, currentPage])
 
-    useEffect( () => {
-
-        if(playersAnswer.length === 10) {   
-            updateResultModalStatus(true);
-        }
-    }, [playersAnswer.length])
-  
 
     const prevQuestion = () => {
         if(currentPage !== 1) {
@@ -159,12 +219,6 @@ const QuizSection = ({category}) => {
         updateSelected(playersAnswer[currentPage-2])
     }
 
-
-    //PAGINATION ===========================================
-    const indexOfLastData = currentPage * dataPerPage;
-    const indexOfFirstData = indexOfLastData - dataPerPage;
-    const currentData = quizData.slice(indexOfFirstData, indexOfLastData);
-    // ======================================================================================
 
     return <>
             {loaderActive ? <Loader
@@ -201,6 +255,7 @@ const QuizSection = ({category}) => {
                                 onChange = {onChange}
                                 checkAnswer = {checkAnswer}
                                 playersAnswer= {playersAnswer}
+                              
                             />
                         )
                 })}

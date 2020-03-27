@@ -19,7 +19,7 @@
 
 .block__section > h4 {
     margin-bottom: 24px;
-    color: #EDA9A9;
+    color: #9F3132;
 }
 
 .block__section__questionBox {
@@ -54,8 +54,8 @@
     position: relative;
     line-height: 1.5rem;
     text-align: left;
-    background: linear-gradient(to right, #F7E4E8 50%, #E0E0E0  50%);
-    background-size: 200% 100%;
+    background: linear-gradient(to right, #F7E4E8 50%, rgb(243, 243, 243)  50%);
+    background-size: 201% 99%;
     background-position: right bottom;
     transition: all 0.5s ease-in;
 } 

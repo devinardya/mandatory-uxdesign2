@@ -3,7 +3,7 @@
 
 
 :root {
-  color: #737373;
+  color: #474747;
   font-family: 'Open Sans', sans-serif;
   font-size: 18px;
 }
@@ -49,4 +49,21 @@ h1, h2, h3, h4, span, div {
   overflow: hidden;
 }
 
+.block__footer {
+  z-index: 2;
+  color: #C85876;
+  font-size: 0.6rem;
+  width: 100%;
+  height: 5%;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
 
+.block__footer__figure {
+  position: absolute;
+  bottom: -9px;
+  margin: 0;
+  z-index: 1;
+  width: 100%;
+}

@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import './quizpage.css';
 import { MdNavigateNext, MdNavigateBefore } from 'react-icons/md';
 
-const QuestionBox = ({data, selected, entities, nextQuestion, prevQuestion, currentPage, index, onChange}) => {
+const QuestionBox = ({data, selected, entities, nextQuestion, prevQuestion, currentPage, index, onChange, checkAnswer}) => {
 
     const inputRef = useRef(null);
     
@@ -13,6 +13,7 @@ const QuestionBox = ({data, selected, entities, nextQuestion, prevQuestion, curr
     const onChangeProps = (e) => {
         onChange(e.target.value)
     }
+
 
     return <>
             <div className="block__section__questionBox" key={index} >
@@ -43,7 +44,7 @@ const QuestionBox = ({data, selected, entities, nextQuestion, prevQuestion, curr
                         Prev Question
                     </button>
                
-                <button className="block__section__next" onClick={ selected ? nextQuestion : null } >
+                <button className="block__section__next" onClick={ selected ? currentPage === 10 ? checkAnswer : nextQuestion : null } >
                     {currentPage === 10 ? "Check Answer" : "Next Question"}
                     <MdNavigateNext 
                         size="24px" 
