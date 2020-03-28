@@ -203,7 +203,7 @@ const QuizSection = ({category}) => {
         console.log(correctPercentStat);  
         let copyCorrPercent = correctPercentStat;
         copyCorrPercent = ((copyCorrAns / (copyPlayedGames*10)) * 100)
-        updateCorrectPercentage(copyCorrPercent.toFixed(2))
+        updateCorrectPercentage(Math.round(copyCorrPercent))
 
         updateResultModalStatus(true);
         console.log('roaor5')

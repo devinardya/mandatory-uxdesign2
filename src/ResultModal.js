@@ -61,7 +61,7 @@ const Create = ({ result,
                             <h5 id="dialog1Desc">You answered</h5>
                             <h1 id="dialog1Desc">{result}/10</h1>
                             <h5 id="dialog1Desc">{result <= 1 ? "question correct" : "questions correct"}</h5>
-                            <nav>
+                            <nav className="block__modalContainer--nav">
                                 <button onClick={restartGame}>Play again</button>
                                 <button onClick={backToHome}>Back to home</button>
                             </nav>

@@ -8,6 +8,16 @@ class Header extends React.PureComponent {
 
     render() {
 
+        let renderHeader =  (
+                             <figure>
+                                <img 
+                                    src={Logo} 
+                                    alt="quiz master logo" 
+                                    className="block__header__logo" 
+                                />
+                            </figure>
+        )
+
         let renderPage;
         if(this.props.page === "home") {
             renderPage = <header className = "block__header-home">
@@ -20,17 +30,31 @@ class Header extends React.PureComponent {
                             </figure>
                         </header>
         } else if(this.props.page === "quiz") {
-            renderPage = <header className = "block__header-quiz">
-                            <figure>
-                                <img 
-                                    src={Logo} 
-                                    alt="quiz master logo" 
-                                    className="block__header__logo" 
-                                />
-                            </figure>
-                            <Link to="/" className="block__header--nav">HOME</Link>
+            renderPage = <header className = "block__header-other">
+                            {renderHeader}
+                            <nav className="block__header--nav">
+                                <h4>QUIZ MASTER //</h4>
+                                <Link to="/" className="block__header--nav">HOME</Link>
+                            </nav>
+                        </header>
+        } else if(this.props.page === "stats") {
+            renderPage = <header className = "block__header-other">
+                            {renderHeader}
+                            <nav className="block__header--nav">
+                                <h4>GAME STATS //</h4>
+                                <Link to="/" className="block__header--nav">HOME</Link>
+                            </nav>
+                        </header>
+        } else if(this.props.page === "about") {
+            renderPage = <header className = "block__header-other">
+                            {renderHeader}
+                            <nav className="block__header--nav">
+                                <h4>ABOUT QUIZ MASTER //</h4>
+                                <Link to="/" className="block__header--nav">HOME</Link>
+                            </nav>
                         </header>
         }
+
   
         return  <>
                     {renderPage}

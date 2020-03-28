@@ -43,7 +43,7 @@
     margin: 0;
 }
 
-.block__modalContainer__dialogBox > nav > button {
+.block__modalContainer--nav > button {
     width: 166px;
     height: 40px;
     background-color: #D56F85;
@@ -55,20 +55,20 @@
     font-weight: bold;
 }
 
-.block__modalContainer__dialogBox > nav > button:hover {
+.block__modalContainer--nav > button:hover {
     background-color: rgb(177, 53, 80);
     cursor: pointer;
 }
 
-.block__modalContainer__dialogBox > nav > button:focus-within {
+.block__modalContainer--nav > button:focus-within {
     outline: 1px dashed rgb(202, 202, 202);
 }
 
-.block__modalContainer__dialogBox > nav > button:first-of-type {
+.block__modalContainer--nav > button:first-of-type {
     background-color: #EDA9A9;
 }
 
-.block__modalContainer__dialogBox > nav > button:first-of-type:hover {
+.block__modalContainer--nav > button:first-of-type:hover {
     background-color: rgb(202, 120, 120);
     cursor: pointer;
 }

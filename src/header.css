@@ -1,5 +1,5 @@
 .block__header-home, 
-.block__header-quiz {
+.block__header-other {
     width:100%;
     display: flex;
     flex-flow: row wrap;
@@ -12,7 +12,7 @@
     text-align: center;
 }
 
-.block__header-quiz {
+.block__header-other {
     justify-content: space-between;
     align-items: center;
     height: 10%;
@@ -21,8 +21,20 @@
 .block__header--nav {
     text-decoration: none;
     font-size: 16px;
-    color: #737373;
+    color: #C85876;
     padding: 5px;
+    font-weight: bold;
+}
+
+.block__header--nav {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.block__header--nav > h4 {
+    color: #737373;
 }
 
 .block__header--nav:hover {
@@ -34,7 +46,7 @@
     width: 70%;
 }
 
-.block__header-quiz > figure > .block__header__logo {
+.block__header-other > figure > .block__header__logo {
     margin-top: 10px;
     width: 40%;
 }

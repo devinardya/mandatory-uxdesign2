@@ -17,27 +17,61 @@
     align-items: center;
 }
 
-.block__stats > article {
-    text-align: center;
-    width: 60%;
-    font-size: 0.9rem;
-    margin-top: 40px;
-    line-height: 1.5rem;
+.block__stats__mainBox {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    height: 70%;
 }
 
-.block__stats > article > h4 {
+.block__stats__mainBox--statsBox {
+    text-align: center;
+    width: 40%;
+    height: 100%;
+    font-size: 0.9rem;
+    line-height: 1.5rem;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.block__stats__mainBox--percentageBox { 
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: flex-start;
+    padding-left: 80px;
+}
+
+.block__stats__mainBox--percentageBox > h4 {
+    margin-top: 40px;
+    text-transform: uppercase;
+    color: #737373;
+    margin-left: 10px;
+}
+
+.block__stats__mainBox--statsBox > h4 {
     text-transform: uppercase;
     color: #737373;
 }
 
-.block__stats > article > p {
+.block__stats__mainBox--statsBox > p {
     color: #D56F85;
     font-size: 2rem;
-    margin: 10px 0 25px 0;
+    margin: 10px 0 35px 0;
+}
+
+.block__stats__mainBox--statsBox > p:last-of-type {
+    margin: 10px 0 0 0;
 }
 
 .block__stats--button > button {
-    margin: 20px;
+    margin: 40px 20px 20px 20px;
     border: none;
     width: 200px;
     height: 40px;
@@ -49,11 +83,28 @@
     background-size: 200% 100%;
     background-position: right bottom;
     position: relative;
-    transition: all 0.5s ease-in;
+    transition: all 0.2s ease-in;
 }
 
 .block__stats--button > button:hover {
     background-position: left bottom;
     color: #fff;
     cursor: pointer;
+}
+
+.block__stats__mainBox--percentageBox--pieChart {
+    position: relative;
+}
+
+.block__stats__mainbox--percentageBox--span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate( -50%, -50%);
+}
+
+.block__stats__mainbox--percentageBox--span > p {
+    font-size: 3.5rem;
+    font-weight: bold;
+    color: #D56F85;
 }
