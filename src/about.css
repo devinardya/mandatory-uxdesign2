@@ -51,6 +51,10 @@
     color: #D56F85;
 }
 
+.block__about > article > ul > li > p > a:focus {
+    border-bottom: 1px dashed #D56F85;
+} 
+
 @media only screen and (max-width: 600px) {
     .block__about > figure {
         display: none;

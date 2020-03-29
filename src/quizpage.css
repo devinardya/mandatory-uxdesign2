@@ -30,6 +30,10 @@
     height: 90px;
 }
 
+.block__section__questionBox > h3:focus-within {
+    outline: 1px dashed #D56F85;
+}
+
 .block__section__questionBox-answers {
     display: flex;
     flex-flow: column wrap;

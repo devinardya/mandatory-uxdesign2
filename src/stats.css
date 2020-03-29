@@ -84,6 +84,10 @@
     cursor: pointer;
 }
 
+.block__stats--button > button:focus-within {
+    outline: 1px dashed #D56F85;
+}
+
 .block__stats__mainBox--percentageBox--pieChart {
     position: relative;
 }

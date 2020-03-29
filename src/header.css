@@ -19,7 +19,7 @@
     height: 10%;
 }
 
-.block__header--nav {
+.block__header--nav--link {
     text-decoration: none;
     font-size: 16px;
     color: #C85876;
@@ -38,7 +38,7 @@
     color: #737373;
 }
 
-.block__header--nav:hover {
+.block__header--nav--link:hover {
     color: #D56F85;
 }
 
@@ -52,8 +52,9 @@
     width: 40%;
 }
 
-.block__header--nav:focus-within {
-    text-decoration: underline;
+.block__header--nav--link:focus-within,
+.Header__menu-button:focus-within,
+.block__header-home__Header__menu-button:focus-within {
     outline: 1px dashed #D56F85;
 }
 
@@ -85,9 +86,7 @@
     font-size: 30px;
   }
   
-  .Header__menu-button:focus {
-    outline: 1px solid white;
-  }
+ 
   
   .Header__menu-button:active {
     opacity: 0.6;

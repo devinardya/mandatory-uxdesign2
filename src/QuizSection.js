@@ -227,13 +227,13 @@ const QuizSection = ({category}) => {
 
     return <>
             {loaderActive ? <Loader
-                type="CradleLoader"
-                color="#00BFFF"
+                type="Oval"
+                color="#D56F85"
                 height={100}
                 width={100}
-                timeout={3000}
+                timeout={5000}
 
-                style={{position:"absolute", top: "50%"}}
+                style={{position:"absolute", top: "40%"}}
                 /> : 
                 <section className = "block__section">
                     <h4 ref={inputRef}>CATEGORY: {category.toUpperCase()}</h4>

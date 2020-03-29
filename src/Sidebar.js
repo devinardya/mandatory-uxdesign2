@@ -28,21 +28,30 @@ function Sidebar({ isOpen, onClose }) {
             <div className={className}>
               <ul className="Sidebar__menu">
                     <li className="Sidebar__menu-item">
-                        <Link to="/" className="Sidebar__menu-link">Home
+                        <Link to="/" 
+                              className="Sidebar__menu-link"
+                              aria-label="Go to home">
+                                  Home
                             <i className="material-icons" style={{position:"absolute", top: "12px", marginLeft:"20px", marginRight: "20px" }}>
                                 home
                             </i>
                         </Link>
                     </li>
                     <li className="Sidebar__menu-item">
-                        <Link to="/about" className="Sidebar__menu-link">About Game
+                        <Link to="/about" 
+                              className="Sidebar__menu-link"
+                              aria-label="Go to about game">
+                                  About Game
                             <i className="material-icons" style={{position:"absolute", top: "12px", marginLeft:"20px", marginRight: "20px" }}>
                                 info
                             </i>
                         </Link>
                     </li>
                     <li className="Sidebar__menu-item">
-                        <Link to="/stats" className="Sidebar__menu-link">Game Stats
+                        <Link to="/stats" 
+                              className="Sidebar__menu-link"
+                              aria-label="Go to game stats">
+                                  Game Stats
                             <i className="material-icons" style={{position:"absolute", top: "12px", marginLeft:"20px", marginRight: "20px" }}>
                                 pie_chart
                             </i>
