@@ -17,13 +17,19 @@ const QuestionBox = ({data, selected, entities, nextQuestion, prevQuestion, curr
 
     return <>
             <div className="block__section__questionBox" key={index} >
-                <h3>{data.question.replace(/&#?\w+;/g, match => entities[match])}</h3>
+                <h3 ref={inputRef}>{data.question.replace(/&#?\w+;/g, match => entities[match])}</h3>
                 <form className="block__section__questionBox-answers" >
                     {data.answers.map((answer, idx)=> {
                         return <label className={selected === answer ? "block__section__questionBox-answers-indiv-checked" : "block__section__questionBox-answers-indiv"} 
                                         key={idx}
-                                        ref={inputRef} >
-                                    <input type="radio" name="answers" checked={selected === answer} value={answer} onChange={onChangeProps}  />
+                                         >
+                                    <input type="radio" 
+                                           name="answers" 
+                                           checked={selected === answer} 
+                                           value={answer} 
+                                           onChange={onChangeProps}
+                                           
+                                           />
                                     <span className="block__section__questionBox-answers-indiv-fakedisplay"></span>
                                     {answer.replace(/&#?\w+;/g, match => entities[match])}
                                 </label>
@@ -45,7 +51,7 @@ const QuestionBox = ({data, selected, entities, nextQuestion, prevQuestion, curr
                     </button>
                
                 <button className="block__section__next" onClick={ selected ? currentPage === 10 ? checkAnswer : nextQuestion : null } >
-                    {currentPage === 10 ? "Check Answer" : "Next Question"}
+                    {currentPage === 10 ? "Check Result" : "Next Question"}
                     <MdNavigateNext 
                         size="24px" 
                         style={{ position: "absolute",

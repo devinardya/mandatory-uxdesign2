@@ -1,0 +1,90 @@
+  
+  .Sidebar {
+    width: 250px;
+    background-color: #C85876;
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100vh;
+    box-shadow: 7px 0px 17px 0px rgba(0,0,0,0.75); 
+    transform: translateX(0);
+    transition: all 0.2s linear;
+    z-index: 9999;
+    background-image: url("./design/question-icon.svg");
+    background-repeat: no-repeat;
+    background-position: bottom;
+  }
+  
+  .Sidebar--closed {
+    box-shadow: none;
+    transform: translateX(250px);
+    visibility: hidden;
+  }
+  
+  .Sidebar__menu {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    padding: 50px 0 0 0;
+
+  }
+  
+  .Sidebar__menu-item {
+    margin:  0;
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+    align-items: center;
+    color: #ffffff;
+    text-align: right;
+  }
+  
+  .Sidebar__menu-link {
+    display: inline-block;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 20px;
+    position: relative;
+  }
+  
+  .Sidebar__menu-link:focus {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    outline: none;
+  }
+  
+  .Sidebar__menu-link:hover {
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  
+  .Sidebar__menu-link {
+    padding: 10px 60px 10px 0;
+    width:100%;
+    box-sizing: border-box;
+  }
+  
+  .Sidebar__mask {
+    background-color: rgba(0, 0, 0, 0.4);
+    border: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: block;
+    height: 100%;
+    box-sizing: border-box;
+    z-index: 999;
+  }
+  
+  .Sidebar__mask:focus-within {
+    box-shadow: inset 0px 0px 0px 4px cyan;
+  }
+  
+  .Sidebar__mask-button {
+    border: none;
+    width: 1px;
+    height: 1px;
+    margin-left: -20px;
+  }

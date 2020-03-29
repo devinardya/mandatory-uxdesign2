@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import axios from 'axios';
 import Loader from 'react-loader-spinner';
 import { playedGames$, updatePlayedGames, correctPercentage$, correctAnswers$, incorrectAnswers$, updateCorrectAnswersStat, updateIncorrectAnswersStat, updateCorrectPercentage } from './store';
@@ -20,12 +20,17 @@ const QuizSection = ({category}) => {
     const [resultModalStatus, updateResultModalStatus] = useState(false);
     const [result, updateResult] = useState(0);
     const dataPerPage = 1;
-    
+    const inputRef = useRef(null);
+
   //PAGINATION ===========================================
     const indexOfLastData = currentPage * dataPerPage;
     const indexOfFirstData = indexOfLastData - dataPerPage;
     const currentData = quizData.slice(indexOfFirstData, indexOfLastData);
     // ======================================================================================
+
+    useEffect( () => {
+        inputRef.current.focus();
+    },[])
 
     const onChange = (data) => {
         console.log(data)
@@ -229,7 +234,7 @@ const QuizSection = ({category}) => {
                 timeout={3000}
                 /> : 
                 <section className = "block__section">
-                    <h4>CATEGORY: {category.toUpperCase()}</h4>
+                    <h4 ref={inputRef}>CATEGORY: {category.toUpperCase()}</h4>
                     {currentData.map((data, index) => {
                         const entities = {
                             "&#039;": "'",

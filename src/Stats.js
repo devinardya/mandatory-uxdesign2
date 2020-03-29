@@ -1,15 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './stats.css';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import PieChart from 'react-minimal-pie-chart';
 import FooterImg from './FooterImg';
 import { playedGames$, correctPercentage$, correctAnswers$, incorrectAnswers$ } from './store';
-import FocusTrap from 'focus-trap-react';
+/* import FocusTrap from 'focus-trap-react'; */
 import Header from "./Header";
 import Footer from "./Footer";
+import Sidebar from './Sidebar';
 
 
 const Stats = () => {
+
+    const [sidebarIsOpen, updateSidebarIsOpen] = useState(false);
 
     const clearStat = () => {
         localStorage.clear();
@@ -22,7 +25,11 @@ const Stats = () => {
                         <title>Quiz Master - Stats</title>
                     </Helmet>
                     <main className="block">
-                        <Header page="stats"/>
+                        
+                         <Header page="stats"
+                                 onClickMenuButton={() => updateSidebarIsOpen(true)}
+                         />
+                         <Sidebar onClickMask={() => updateSidebarIsOpen(false)} isOpen={sidebarIsOpen} />
                         <section className="block__stats">
                             <div className="block__stats__mainBox">
                                 <article className="block__stats__mainBox--statsBox">
@@ -69,19 +76,19 @@ const Stats = () => {
                                                 100
                                                 ]}
                                             />
-                                        <span className="block__stats__mainbox--percentageBox--span"><p>{correctPercentage$.value === 0 ? "00 %" : parseInt(correctPercentage$.value) + "%"}</p></span>
+                                        <span className="block__stats__mainbox--percentageBox--span"><p>{correctPercentage$.value === 0 ? "0%" : parseInt(correctPercentage$.value)+"%"}</p></span>
                                     </div>
                                     <h4>Correct Answer Percentage</h4>
-                                    {/* <p>{correctPercentage$.value === 0 ? "00 %" : correctPercentage$.value + "%"}</p> */}
                                 </article>
                             </div>
-                            <FocusTrap>
+                            
                                 <div className="block__stats--button">
                                     <button onClick={clearStat}>Reset Stats</button>
                                 </div>
-                            </FocusTrap>
+                           
                         </section>
                         <Footer />
+                      
                     </main>
                     <FooterImg />
                 </HelmetProvider>

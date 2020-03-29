@@ -41,28 +41,43 @@ const HomeSection = () => {
                 <h3>Choose one from three categories below and see how many correct answers you can get out of 10 questions!</h3>
                 <div className="block__section__figures">
                     <label className="block__section__figures-input" ref={inputRef} >
-                        <input type="radio" name="category" checked={selected === "movie"} value={"movie"} onChange={onChange}/>
+                        <input type="radio" 
+                               name="category" 
+                               checked={selected === "movie"} 
+                               value={"movie"} 
+                               onChange={onChange}
+                               />
                         <figure className="block__section__figures-input-fake">
                             <img src={movieIcon} alt="movie category" />
                         </figure>
                         <figcaption>MOVIE</figcaption>
                     </label>
                     <label className="block__section__figures-input" >
-                        <input type="radio" name="category" checked={selected === "music"} value={"music"}  onChange={onChange} />
+                        <input type="radio" 
+                               name="category" 
+                               checked={selected === "music"} 
+                               value={"music"}  
+                               onChange={onChange} 
+                               />
                         <figure className="block__section__figures-input-fake">
                           <img src={musicIcon} alt="music category" />
                         </figure>
                         <figcaption>MUSIC</figcaption>
                     </label>
                     <label className="block__section__figures-input" >
-                        <input type="radio" name="category" checked={selected === "books"} value={"books"}  onChange={onChange} />
+                        <input type="radio" 
+                               name="category" 
+                               checked={selected === "books"} 
+                               value={"books"}  
+                               onChange={onChange}
+                               />
                         <figure className="block__section__figures-input-fake">
                           <img src={booksIcon} alt="books category" />
                         </figure>
                         <figcaption>BOOKS</figcaption>
                     </label>
                 </div>
-                <button className="block__section__submit" onClick={start}>
+                <button className="block__section__submit" aria-label="Start Quiz" onClick={start}>
                     Start Quiz!
                 </button>
             </section>

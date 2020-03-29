@@ -3,6 +3,7 @@
     width:100%;
     display: flex;
     flex-flow: row wrap;
+    position: relative;
 }
 
 .block__header-home {
@@ -55,3 +56,45 @@
     text-decoration: underline;
     outline: 1px dashed #D56F85;
 }
+
+.block__header-home__Header__menu-button {
+    background-color: transparent;
+    color: #D56F85;
+    border: none;
+    height: 40px;
+    width: 40px;
+    margin-left: 10px;
+    position: absolute;
+    right: 5px;
+    top: 21px;
+}
+
+.Header__menu-button {
+    background-color: transparent;
+    color: #D56F85;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 40px;
+    margin-left: 10px;
+  }
+  
+  .Header__menu-icon {
+    font-size: 30px;
+  }
+  
+  .Header__menu-button:focus {
+    outline: 1px solid white;
+  }
+  
+  .Header__menu-button:active {
+    opacity: 0.6;
+  }
+  
+  .Header__title {
+    color: white;
+    margin-left: 10px;
+    font-size: 24px;
+  }

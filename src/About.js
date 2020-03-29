@@ -1,20 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './about.css';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import FooterImg from './FooterImg';
 import AboutImg from './design/about-illustration.svg';
 import Header from "./Header";
 import Footer from "./Footer";
+import Sidebar from './Sidebar';
 
 
 const About = () => {
+
+    const [sidebarIsOpen, updateSidebarIsOpen] = useState(false);
+
     return <>   
                 <HelmetProvider>
                     <Helmet>
                         <title>Quiz Master - About</title>
                     </Helmet>
                     <main className="block">
-                        <Header page="about"/>
+                         <Header page="about"
+                                 onClickMenuButton={() => updateSidebarIsOpen(true)}
+                         />
+                         <Sidebar onClickMask={() => updateSidebarIsOpen(false)} isOpen={sidebarIsOpen} />
                         <section className="block__about">
                             <figure>
                                 <img src={AboutImg} alt="about page illustration" />
