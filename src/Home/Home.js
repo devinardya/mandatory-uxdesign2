@@ -22,7 +22,7 @@ const Home = () => {
                             <Header page="home"
                                     onClickMenuButton={() => updateSidebarIsOpen(true)}
                             />
-                             <Sidebar onClickMask={() => updateSidebarIsOpen(false)} isOpen={sidebarIsOpen} />
+                             <Sidebar onClose={() => updateSidebarIsOpen(false)} isOpen={sidebarIsOpen} />
                             <HomeSection />
                             <Footer />
                         </main>

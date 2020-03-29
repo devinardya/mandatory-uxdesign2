@@ -3,7 +3,7 @@ import FocusTrap from 'focus-trap-react';
 import { Link } from 'react-router-dom';
 import './sidebar.css';
 
-function Sidebar({ isOpen, onClickMask }) {
+function Sidebar({ isOpen, onClose }) {
 
     let className = "Sidebar";
   
@@ -11,11 +11,17 @@ function Sidebar({ isOpen, onClickMask }) {
       className += " Sidebar--closed";
     }
 
+    const onKeyDown = (e) => {
+        if (e.keyCode === 27){
+            onClose();
+        }
+    }
+
     return (
         <FocusTrap active={isOpen} paused={!isOpen}>
-          <div>
+          <div onKeyDown={onKeyDown}>
             {isOpen && (
-              <label onClick={onClickMask} className="Sidebar__mask">
+              <label onClick={onClose} className="Sidebar__mask">
                 <button aria-label="Close menu" className="Sidebar__mask-button"></button>
               </label>
             )}

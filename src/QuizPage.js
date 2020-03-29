@@ -22,7 +22,7 @@ const QuizPage = ({ location }) => {
                             <Header page="quiz"
                                     onClickMenuButton={() => updateSidebarIsOpen(true)}
                             />
-                            <Sidebar onClickMask={() => updateSidebarIsOpen(false)} isOpen={sidebarIsOpen} />
+                            <Sidebar onClose={() => updateSidebarIsOpen(false)} isOpen={sidebarIsOpen} />
                             <QuizSection category={location.state.category} />
                             <Footer />
                         </main>

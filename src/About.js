@@ -21,7 +21,7 @@ const About = () => {
                          <Header page="about"
                                  onClickMenuButton={() => updateSidebarIsOpen(true)}
                          />
-                         <Sidebar onClickMask={() => updateSidebarIsOpen(false)} isOpen={sidebarIsOpen} />
+                         <Sidebar onClose={() => updateSidebarIsOpen(false)} isOpen={sidebarIsOpen} />
                         <section className="block__about">
                             <figure>
                                 <img src={AboutImg} alt="about page illustration" />

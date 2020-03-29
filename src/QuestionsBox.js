@@ -39,7 +39,10 @@ const QuestionBox = ({data, selected, entities, nextQuestion, prevQuestion, curr
         
             <div className="block__section__changePage">
                 
-                    <button className="block__section__prev" onClick={prevQuestion} disabled={currentPage === 1 ? "disabled" : null }>
+                    <button className="block__section__prev" 
+                            aria-label="previous question"
+                            onClick={prevQuestion} 
+                            disabled={currentPage === 1 ? "disabled" : null }>
                         <MdNavigateBefore 
                             size="24px" 
                             style={{ position: "absolute",
@@ -50,7 +53,9 @@ const QuestionBox = ({data, selected, entities, nextQuestion, prevQuestion, curr
                         Prev Question
                     </button>
                
-                <button className="block__section__next" onClick={ selected ? currentPage === 10 ? checkAnswer : nextQuestion : null } >
+                <button className="block__section__next" 
+                        aria-label={currentPage === 10 ? "Check Result" : "Next Question"}
+                        onClick={ selected ? currentPage === 10 ? checkAnswer : nextQuestion : null } >
                     {currentPage === 10 ? "Check Result" : "Next Question"}
                     <MdNavigateNext 
                         size="24px" 

@@ -29,7 +29,7 @@ const Stats = () => {
                          <Header page="stats"
                                  onClickMenuButton={() => updateSidebarIsOpen(true)}
                          />
-                         <Sidebar onClickMask={() => updateSidebarIsOpen(false)} isOpen={sidebarIsOpen} />
+                         <Sidebar onClose={() => updateSidebarIsOpen(false)} isOpen={sidebarIsOpen} />
                         <section className="block__stats">
                             <div className="block__stats__mainBox">
                                 <article className="block__stats__mainBox--statsBox">
@@ -83,7 +83,7 @@ const Stats = () => {
                             </div>
                             
                                 <div className="block__stats--button">
-                                    <button onClick={clearStat}>Reset Stats</button>
+                                    <button aria-label="reset stats" onClick={clearStat}>Reset Stats</button>
                                 </div>
                            
                         </section>
