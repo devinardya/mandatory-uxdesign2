@@ -55,7 +55,7 @@
     background: linear-gradient(to right, #F7E4E8 50%, rgb(243, 243, 243)  50%);
     background-size: 201% 99%;
     background-position: right bottom;
-    transition: all 0.5s ease-in;
+    transition: all 0.2s ease-in;
 } 
 
 .block__section__questionBox-answers-indiv:hover {
@@ -152,21 +152,19 @@
     color: #3a3a3a;
     border-radius: 30px;
     font-size: 0.8rem;
-    background: linear-gradient(to right, #D56F85 50%, #EDA9A9 50%);
+    background: linear-gradient(to right, #BE3459 50%, #EDA9A9 50%);
     background-size: 200% 100%;
     background-position: right bottom;
     position: relative;
-    transition: all 0.5s ease-in;
-
+    transition: all 0.2s ease-in;
+    font-weight: bold;
 }
 
- 
 .block__section__next:hover {
     background-position: left bottom;
     color: #fff;
     cursor: pointer;
 }
-
 
 .block__section__prev {
     margin: 20px;
@@ -176,12 +174,12 @@
     color: #3a3a3a;
     border-radius: 30px;
     font-size: 0.8rem;
-    /* background-color: #DBDBDB; */
-    background: linear-gradient(to right, #dbdbdb 50%, #b5b5b5 50%);
+    font-weight: bold;
+    background: linear-gradient(to right, #dbdbdb 50%, #3a3a3a 50%);
     background-size: 200% 100%;
     background-position: left bottom;
      position: relative;
-    transition: all 0.5s ease-in;
+    transition: all 0.2s ease-in;
 }
 
 .block__section__prev:disabled {
@@ -198,7 +196,6 @@
 
 .block__section__prev:hover {
     background-position: right bottom;
-    /* background-color: #b5b5b5; */
     color: #fff;
     cursor: pointer;
 }
