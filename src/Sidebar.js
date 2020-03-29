@@ -23,21 +23,21 @@ function Sidebar({ isOpen, onClickMask }) {
               <ul className="Sidebar__menu">
                     <li className="Sidebar__menu-item">
                         <Link to="/" className="Sidebar__menu-link">Home
-                            <i className="material-icons" style={{position:"absolute", top: "12px", marginLeft:"10px", marginRight: "20px" }}>
+                            <i className="material-icons" style={{position:"absolute", top: "12px", marginLeft:"20px", marginRight: "20px" }}>
                                 home
                             </i>
                         </Link>
                     </li>
                     <li className="Sidebar__menu-item">
-                        <Link to="/about" className="Sidebar__menu-link">About
-                            <i className="material-icons" style={{position:"absolute", top: "12px", marginLeft:"10px", marginRight: "20px" }}>
+                        <Link to="/about" className="Sidebar__menu-link">About Game
+                            <i className="material-icons" style={{position:"absolute", top: "12px", marginLeft:"20px", marginRight: "20px" }}>
                                 info
                             </i>
                         </Link>
                     </li>
                     <li className="Sidebar__menu-item">
-                        <Link to="/stats" className="Sidebar__menu-link">Stats
-                            <i className="material-icons" style={{position:"absolute", top: "12px", marginLeft:"10px", marginRight: "20px" }}>
+                        <Link to="/stats" className="Sidebar__menu-link">Game Stats
+                            <i className="material-icons" style={{position:"absolute", top: "12px", marginLeft:"20px", marginRight: "20px" }}>
                                 pie_chart
                             </i>
                         </Link>

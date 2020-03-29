@@ -30,7 +30,7 @@ class Header extends React.PureComponent {
                                 />
                             </figure>
                             <button onClick={this.props.onClickMenuButton} aria-label="Open menu" className="block__header-home__Header__menu-button">
-                                    <i className="Header__menu-icon material-icons">menu</i>
+                                    <i className="Header__menu-icon material-icons" aria-hidden="true" >menu</i>
                             </button>
                         </header>
         } else if(this.props.page === "quiz") {
@@ -40,7 +40,7 @@ class Header extends React.PureComponent {
                                 <h4>QUIZ MASTER //</h4>
                                 <Link to="/" className="block__header--nav">HOME</Link>
                                 <button onClick={this.props.onClickMenuButton} aria-label="Open menu" className="Header__menu-button">
-                                    <i className="Header__menu-icon material-icons">menu</i>
+                                    <i className="Header__menu-icon material-icons" aria-hidden="true" >menu</i>
                                 </button>
                             </nav>
                         </header>
@@ -51,7 +51,7 @@ class Header extends React.PureComponent {
                                 <h4>GAME STATS //</h4>
                                 <Link to="/" className="block__header--nav">HOME</Link>
                                 <button onClick={this.props.onClickMenuButton} aria-label="Open menu" className="Header__menu-button">
-                                    <i className="Header__menu-icon material-icons">menu</i>
+                                    <i className="Header__menu-icon material-icons" aria-hidden="true" >menu</i>
                                  </button>
                             </nav>
                         </header>
@@ -59,10 +59,10 @@ class Header extends React.PureComponent {
             renderPage = <header className = "block__header-other">
                             {renderHeader}
                             <nav className="block__header--nav">
-                                <h4>ABOUT QUIZ MASTER //</h4>
+                                <h4>ABOUT GAME //</h4>
                                 <Link to="/" className="block__header--nav">HOME</Link>
                                 <button onClick={this.props.onClickMenuButton} aria-label="Open menu" className="Header__menu-button">
-                                    <i className="Header__menu-icon material-icons">menu</i>
+                                    <i className="Header__menu-icon material-icons" aria-hidden="true" >menu</i>
                                  </button>
                             </nav>
                         </header>

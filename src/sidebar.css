@@ -1,6 +1,6 @@
   
   .Sidebar {
-    width: 250px;
+    width: 350px;
     background-color: #C85876;
     position: absolute;
     right: 0;
@@ -13,11 +13,12 @@
     background-image: url("./design/question-icon.svg");
     background-repeat: no-repeat;
     background-position: bottom;
+    background-size: contain;
   }
   
   .Sidebar--closed {
     box-shadow: none;
-    transform: translateX(250px);
+    transform: translateX(350px);
     visibility: hidden;
   }
   
@@ -59,7 +60,7 @@
   }
   
   .Sidebar__menu-link {
-    padding: 10px 60px 10px 0;
+    padding: 10px 80px 10px 0;
     width:100%;
     box-sizing: border-box;
   }

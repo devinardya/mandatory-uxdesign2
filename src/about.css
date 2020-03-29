@@ -1,15 +1,8 @@
-.block {
-    height: 100%;
-    width: 90%;
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: space-between;
-    align-items: center;
-}
+
 
 .block__about {
     width: 100%;
-    
+    height: 85%;
     text-align: center;
     display: flex;
     flex-flow: row wrap;
@@ -56,4 +49,18 @@
 
 .block__about > article > ul > li > p > a {
     color: #D56F85;
+}
+
+@media only screen and (max-width: 600px) {
+    .block__about > figure {
+        display: none;
+    }
+
+    .block__about > article {
+        width: 90%;
+    }
+
+    .block__about > article > ul {
+        margin: 0;
+    }
 }

@@ -232,6 +232,8 @@ const QuizSection = ({category}) => {
                 height={100}
                 width={100}
                 timeout={3000}
+
+                style={{position:"absolute", top: "50%"}}
                 /> : 
                 <section className = "block__section">
                     <h4 ref={inputRef}>CATEGORY: {category.toUpperCase()}</h4>
