@@ -29,13 +29,26 @@ const QuizSection = ({category}) => {
     // ======================================================================================
 
     useEffect( () => {
-        inputRef.current.focus();
+        let focusTimeout = setTimeout( () => {
+            if(!loaderActive){
+                console.log("inputRef is not null")
+                inputRef.current.focus();
+            }
+        }, 3000)
+        
+        return () => {
+            clearTimeout(focusTimeout);
+        }
     },[])
 
     const onChange = (data) => {
         console.log(data)
         updateSelected(data)
         
+    }
+
+    const callingFocus = () => {
+        inputRef.current.focus();
     }
 
     useEffect(() => {
@@ -168,7 +181,8 @@ const QuizSection = ({category}) => {
         updatePlayerAnswer(copyAnswers)
 
         if(currentPage !== 10){
-            updateCurrentPage(currentPage+1)
+            updateCurrentPage(currentPage+1);
+            callingFocus();
         }
         updateSelected(playersAnswer[currentPage])
     }
@@ -218,10 +232,11 @@ const QuizSection = ({category}) => {
 
     const prevQuestion = () => {
         if(currentPage !== 1) {
-            updateCurrentPage(currentPage-1)
+            updateCurrentPage(currentPage-1);
+            callingFocus();
         }
        
-        updateSelected(playersAnswer[currentPage-2])
+        updateSelected(playersAnswer[currentPage-2]);
     }
 
 
@@ -236,7 +251,7 @@ const QuizSection = ({category}) => {
                 style={{position:"absolute", top: "40%"}}
                 /> : 
                 <section className = "block__section">
-                    <h4 ref={inputRef} tabIndex="0">CATEGORY: {category.toUpperCase()}</h4>
+                    <h4>CATEGORY: {category.toUpperCase()}</h4>
                     {currentData.map((data, index) => {
                         const entities = {
                             "&#039;": "'",
@@ -262,7 +277,7 @@ const QuizSection = ({category}) => {
                                 onChange = {onChange}
                                 checkAnswer = {checkAnswer}
                                 playersAnswer= {playersAnswer}
-                              
+                                inputRef = {inputRef}
                             />
                         )
                 })}
