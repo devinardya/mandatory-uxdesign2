@@ -93,6 +93,10 @@
     cursor: pointer;
 }
 
+.block__home__section__submit:focus-within {
+    outline: 1px dashed #D56F85;
+}
+
 @media only screen and (max-width: 800px) {
     .block__home__section__figures-input-fake > img {
         width: 20vw;

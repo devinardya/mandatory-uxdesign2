@@ -269,7 +269,7 @@ const QuizSection = ({category}) => {
                 color="#D56F85"
                 height={100}
                 width={100}
-                timeout={5000}
+                timeout={3000}
 
                 style={{position:"absolute", top: "40%"}}
                 /> : 
