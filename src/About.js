@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import './about.css';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import FooterImg from './FooterImg';
-import FocusTrap from 'focus-trap-react';
 import AboutImg from './design/about-illustration.svg';
 import Header from "./Header";
 import Footer from "./Footer";
@@ -18,7 +17,6 @@ const About = () => {
                     <Helmet>
                         <title>Quiz Master - About</title>
                     </Helmet>
-                    <FocusTrap>
                         <main className="block">
                             <Header page="about"
                                     onClickMenuButton={() => updateSidebarIsOpen(true)}
@@ -49,7 +47,6 @@ const About = () => {
                             </section>
                             <Footer />
                         </main>
-                    </FocusTrap>
                     <FooterImg />
                 </HelmetProvider>
            </>

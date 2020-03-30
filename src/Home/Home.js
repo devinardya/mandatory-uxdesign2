@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import "../Home/home.css";
 import Header from "../Header";
-import FocusTrap from 'focus-trap-react';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import Footer from "../Footer";
 import HomeSection from "../HomeSection";
@@ -17,7 +16,6 @@ const Home = () => {
                     <Helmet >
                         <title>Quiz Master - Home</title>
                     </Helmet>
-                    <FocusTrap>
                         <main className="block">
                             <Header page="home"
                                     onClickMenuButton={() => updateSidebarIsOpen(true)}
@@ -25,8 +23,7 @@ const Home = () => {
                              <Sidebar onClose={() => updateSidebarIsOpen(false)} isOpen={sidebarIsOpen} />
                             <HomeSection />
                             <Footer />
-                        </main>
-                    </FocusTrap>        
+                        </main>       
                     <FooterImg />
                 </HelmetProvider>  
             </>

@@ -4,7 +4,6 @@ import { Helmet, HelmetProvider } from 'react-helmet-async';
 import PieChart from 'react-minimal-pie-chart';
 import FooterImg from './FooterImg';
 import { playedGames$, correctPercentage$, correctAnswers$, incorrectAnswers$ } from './store';
-import FocusTrap from 'focus-trap-react'; 
 import Header from "./Header";
 import Footer from "./Footer";
 import Sidebar from './Sidebar';
@@ -24,7 +23,6 @@ const Stats = () => {
                     <Helmet>
                         <title>Quiz Master - Stats</title>
                     </Helmet>
-                    <FocusTrap>
                     <main className="block">
                          <Header page="stats"
                                  onClickMenuButton={() => updateSidebarIsOpen(true)}
@@ -88,9 +86,7 @@ const Stats = () => {
                            
                         </section>
                         <Footer />
-                      
                     </main>
-                    </FocusTrap>
                     <FooterImg />
                 </HelmetProvider>
            </>

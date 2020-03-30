@@ -1,14 +1,8 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import './quizpage.css';
 import { MdNavigateNext, MdNavigateBefore } from 'react-icons/md';
 
 const QuestionBox = ({data, selected, entities, nextQuestion, prevQuestion, currentPage, index, onChange, checkAnswer, inputRef}) => {
-
-   /*  const inputRef = useRef(null);
-    
-    useEffect( () => {
-        inputRef.current.focus();
-    },[]) */
 
     const onChangeProps = (e) => {
         onChange(e.target.value)
