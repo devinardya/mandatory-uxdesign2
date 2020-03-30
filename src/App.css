@@ -63,7 +63,7 @@ h1, h2, h3, h4, span, div {
   z-index: 2;
   color: #C85876;
   font-size: 0.6rem;
-  width: 100%;
+  width: 80%;
   position: absolute;
   bottom: 10px;
   text-align: center;
@@ -77,3 +77,15 @@ h1, h2, h3, h4, span, div {
   width: 100%;
 }
 
+@media only screen and (max-width: 500px) {
+
+  .App {
+    height: auto;
+  }
+
+  .block__footer,
+  .block__footer__figure {
+    position: static;
+    bottom: 0px;
+  }
+}

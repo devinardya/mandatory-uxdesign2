@@ -105,7 +105,8 @@
     color: #D56F85;
 }
 
-@media only screen and (max-width: 500px) {
+
+@media only screen and (max-width: 768px) {
 
     .block__stats {
         height: 80%;
@@ -118,7 +119,7 @@
         justify-content: center;
         align-items: center;
         height: 80%;
-        margin-top: 30px;
+        margin-top: 50px;
     }
 
 
@@ -154,7 +155,7 @@
     }
 
     .block__stats--button > button {
-        margin: 0;
+        margin: 25px 0 0 0;
     }
 
     .block__stats--button > button:focus-within {
@@ -162,15 +163,28 @@
     }
 }
 
-@media only screen and (max-width: 345px) {
+@media only screen and (max-width: 500px) {
 
 
-    .block__stats__mainBox--statsBox {
-        height: 70%;
+    .block__stats{
+        height: auto;
+    }
+
+    .block__stats__mainBox {
+        height: auto;
     }
 
     .block__stats__mainBox--percentageBox { 
-        height: 30%;
+        height: 50%;
+        margin-bottom: 40px;
+    }
+
+    .block__stats__mainBox--statsBox{
+        margin-bottom: 40px;
+    }
+ 
+    .block__stats--button {
+        margin-bottom: 100px;
     }
 
     .block__stats__mainBox--percentageBox--pieChart {

@@ -68,3 +68,25 @@
         margin: 0;
     }
 }
+
+@media only screen and (max-width: 500px) {
+
+    .block__about {
+        
+        height: 600px;
+        margin-bottom: 100px;
+    }
+
+    .block__about > article {
+        height: auto;
+    }
+
+    .block__about > article > p {
+       
+        width: 90%;
+    }
+
+    .block__about > article > ul {
+        margin-left: 20px;
+    }
+}

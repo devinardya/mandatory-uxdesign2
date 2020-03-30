@@ -17,6 +17,11 @@
     font-weight: normal;
 }
 
+.block__home__section > h3:focus {
+    font-weight: bold;
+    color: #D56F85;
+}
+
 .block__home__section__figures {
     display: flex;
     flex-flow: row wrap;
@@ -108,7 +113,27 @@
 
 }
 
+@media only screen and (max-width: 500px) { 
+    .block__home__section {
+        justify-content: flex-start;
+    }
 
+    .block__home__section__figures {
+        flex-flow: column wrap;
+    }
+
+    .block__home__section__figures-input-fake > img {
+        width: 40vw;
+    }
+
+    .block__home__section__figures-input {
+        margin-bottom: 30px;
+    }
+
+    .block__home__section__submit {
+        margin: 0 0 50px 0;
+    }
+}
 
 
 

@@ -2,7 +2,18 @@ import React from 'react';
 import './quizpage.css';
 import { MdNavigateNext, MdNavigateBefore } from 'react-icons/md';
 
-const QuestionBox = ({data, selected, entities, nextQuestion, prevQuestion, currentPage, index, onChange, checkAnswer, inputRef}) => {
+const QuestionBox = ({ data, 
+                       selected, 
+                       entities, 
+                       nextQuestion, 
+                       prevQuestion, 
+                       currentPage, 
+                       index, 
+                       onChange, 
+                       checkAnswer, 
+                       inputRef,
+                       nextButtonRef,
+                    }) => {
 
     const onChangeProps = (e) => {
         onChange(e.target.value)
@@ -47,7 +58,7 @@ const QuestionBox = ({data, selected, entities, nextQuestion, prevQuestion, curr
                         Prev Question
                     </button>
                
-                <button className="block__section__next" 
+                <button ref={nextButtonRef} className="block__section__next" 
                         aria-label={currentPage === 10 ? "Check Result" : "Next Question"}
                         onClick={ selected ? currentPage === 10 ? checkAnswer : nextQuestion : null } >
                     {currentPage === 10 ? "Check Result" : "Next Question"}

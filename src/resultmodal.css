@@ -54,7 +54,8 @@
     font-weight: bold;
 }
 
-.block__modalContainer--nav > button:hover {
+.block__modalContainer--nav > button:hover,
+.block__modalContainer--nav > button:focus {
     background-color: #BE3459;
     color: #ffffff;
     cursor: pointer;
@@ -69,7 +70,8 @@
     color: #3a3a3a;
 }
 
-.block__modalContainer--nav > button:first-of-type:hover {
+.block__modalContainer--nav > button:first-of-type:hover,
+.block__modalContainer--nav > button:first-of-type:focus {
     background-color: #3a3a3a;
     color: #fff;
     cursor: pointer;

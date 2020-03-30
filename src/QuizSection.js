@@ -21,6 +21,7 @@ const QuizSection = ({category}) => {
     const [result, updateResult] = useState(0);
     const dataPerPage = 1;
     const inputRef = useRef(null);
+    const nextButtonRef = useRef(null);
 
     // PAGINATION ===========================================
     const indexOfLastData = currentPage * dataPerPage;
@@ -43,6 +44,10 @@ const QuizSection = ({category}) => {
 
     const callingFocus = () => {
         inputRef.current.focus();
+    }
+
+    const callingBlur = () => {
+        nextButtonRef.current.blur();
     }
 
     // ONCHANGE FUNCTION TO GET THE SELECTED ANSWER ===========================================
@@ -199,6 +204,7 @@ const QuizSection = ({category}) => {
         if(currentPage !== 10){
             updateCurrentPage(currentPage+1);
             callingFocus();
+            callingBlur();
         }
         updateSelected(playersAnswer[currentPage])
     }
@@ -263,18 +269,18 @@ const QuizSection = ({category}) => {
      // RENDER THE COMPONENT ===========================================
 
 
-    return <>
-            {loaderActive ? <Loader
-                type="Oval"
-                color="#D56F85"
-                height={100}
-                width={100}
-                timeout={3000}
+    return <section className = "block__section">
+                {loaderActive ? 
+                    <Loader className="loader"
+                        type="Oval"
+                        color="#D56F85"
+                        height={100}
+                        width={100}
+                        timeout={5000}
 
-                style={{position:"absolute", top: "40%"}}
-                /> : 
-                <section className = "block__section">
-
+                        /> : 
+                
+                    <>
                     <h4>CATEGORY: {category.toUpperCase()}</h4>
                     <h5>{currentPage} / 10</h5>
                     {currentData.map((data, index) => {
@@ -303,19 +309,22 @@ const QuizSection = ({category}) => {
                                 checkAnswer = {checkAnswer}
                                 playersAnswer= {playersAnswer}
                                 inputRef = {inputRef}
+                                nextButtonRef = {nextButtonRef}
                             />
                         )
-                })}
-                { resultModalStatus && <ResultModal result={result} 
-                                                   getData={getData}
-                                                   updateQuizData = {updateQuizData}
-                                                   updatePlayerAnswer = {updatePlayerAnswer}
-                                                   updateCurrentPage = {updateCurrentPage}
-                                                   updateResultModalStatus = {updateResultModalStatus}
-                                                   />}
+                        
+                         })
+                        }
+                        { resultModalStatus && <ResultModal result={result} 
+                                                        getData={getData}
+                                                        updateQuizData = {updateQuizData}
+                                                        updatePlayerAnswer = {updatePlayerAnswer}
+                                                        updateCurrentPage = {updateCurrentPage}
+                                                        updateResultModalStatus = {updateResultModalStatus}
+                                                        />}
+                        </>
+                }
             </section>
-            }
-        </>
 }
 
 export default QuizSection;
