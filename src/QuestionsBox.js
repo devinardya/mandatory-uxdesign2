@@ -22,7 +22,7 @@ const QuestionBox = ({data, selected, entities, nextQuestion, prevQuestion, curr
                                            checked={selected === answer} 
                                            value={answer} 
                                            onChange={onChangeProps}
-                                           aria-label={answer}
+                                           aria-label={answer.replace(/&#?\w+;/g, match => entities[match])}    
                                            />
                                     <span className="block__section__questionBox-answers-indiv-fakedisplay"></span>
                                     {answer.replace(/&#?\w+;/g, match => entities[match])}

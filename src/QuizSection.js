@@ -12,7 +12,7 @@ const QuizSection = ({category}) => {
     const [playersAnswer, updatePlayerAnswer] = useState([]);
     const [currentPage, updateCurrentPage] = useState(1);
     const [loaderActive, updateLoaderActive] = useState(false);
-    const [correctAnswer, updateCorrectAnswer] = useState([]);
+    const [allCorrectAnswer, updateAllCorrectAnswer] = useState([]);
     const [incorrectAnswerStat, updateIncorrAnsState] = useState(incorrectAnswers$.value);
     const [correctAnswerStat, updateCorrAnsState] = useState(correctAnswers$.value); 
     const [playedGamesStat, updateGames] = useState(playedGames$.value);
@@ -22,34 +22,37 @@ const QuizSection = ({category}) => {
     const dataPerPage = 1;
     const inputRef = useRef(null);
 
-  //PAGINATION ===========================================
+    // PAGINATION ===========================================
     const indexOfLastData = currentPage * dataPerPage;
     const indexOfFirstData = indexOfLastData - dataPerPage;
     const currentData = quizData.slice(indexOfFirstData, indexOfLastData);
     // ======================================================================================
 
+    // USE EFFECT TO ASSIGN H3 TAG ON FOCUS ===========================================
+
     useEffect( () => {
         let focusTimeout = setTimeout( () => {
             if(!loaderActive){
-                console.log("inputRef is not null")
                 inputRef.current.focus();
             }
         }, 3000)
-        
         return () => {
             clearTimeout(focusTimeout);
         }
-    },[])
-
-    const onChange = (data) => {
-        console.log(data)
-        updateSelected(data)
-        
-    }
+    },[loaderActive]);
 
     const callingFocus = () => {
         inputRef.current.focus();
     }
+
+    // ONCHANGE FUNCTION TO GET THE SELECTED ANSWER ===========================================
+
+    const onChange = (data) => {
+        console.log(data)
+        updateSelected(data)
+    }
+
+    // USE EFFECT TO SUBSCRIBE TO LOCAL STORAGE ===========================================
 
     useEffect(() => {
         const subscribe = playedGames$.subscribe(games => {
@@ -85,9 +88,13 @@ const QuizSection = ({category}) => {
     }, []); 
 
 
+    // FUNCTION TO CHANGE THE LOADER STATUS ===========================================
+
     const activateLoader = (status) => {
         updateLoaderActive(status);
     }
+
+    // FUNCTION TO GET THE DATA FROM API ===========================================
 
     const getData = useCallback( () => {
         let cat;
@@ -131,7 +138,7 @@ const QuizSection = ({category}) => {
                 return allCorrectAnswer.push(data.correct_answer)
                 })
 
-                updateCorrectAnswer(allCorrectAnswer);
+                updateAllCorrectAnswer(allCorrectAnswer);
                 updateLoaderActive(false);
                 updateQuizData(newDocuments);
             }, 2000)
@@ -146,21 +153,14 @@ const QuizSection = ({category}) => {
         }
     }, [updateQuizData, category ])
 
-   useEffect(
+    // USE EFFECT TO CALL THE GETDATA FUNCTION 1 TIME ===========================================
+
+    useEffect(
         getData, []
     );
 
-    useEffect( () => {
-        activateLoader(true);
-        const activeLoad = setTimeout( () => {
-            activateLoader(false);
-        },3000)
+    // FUNCTION TO SHUFFLE ALL THE ANSWERS FROM THE API ===========================================
 
-        return () => {
-            clearTimeout(activeLoad);
-        }
-    }, [])
-    
     const shuffle = (array) => {
 
         for (let i = array.length - 1; i > 0; i--) {
@@ -173,6 +173,22 @@ const QuizSection = ({category}) => {
         return array;
     }
 
+
+    // FUNCTION TO ACTIVATE THE LOADER RIGHT AWAY THEN THE PAGE LOAD THE FIRST TIME ===========================================
+
+    useEffect( () => {
+        activateLoader(true);
+        const activeLoad = setTimeout( () => {
+            activateLoader(false);
+        },3000)
+
+        return () => {
+            clearTimeout(activeLoad);
+        }
+    }, [])
+    
+    // FUNCTION TO RENDER THE NEXT QUESTION ===========================================
+   
      const nextQuestion = () => {
 
         let copyAnswers = [...playersAnswer]
@@ -187,11 +203,26 @@ const QuizSection = ({category}) => {
         updateSelected(playersAnswer[currentPage])
     }
 
+
+     // FUNCTION TO RENDER THE PREVIOUS QUESTION ===========================================
+
+
+    const prevQuestion = () => {
+        if(currentPage !== 1) {
+            updateCurrentPage(currentPage-1);
+            callingFocus();
+        }
+       
+        updateSelected(playersAnswer[currentPage-2]);
+    }
+
+    // FUNCTION TO CHECK PLAYER'S ANSWER AND SAVE ALL THE STATS INTO THE LOCAL STORAGE ===========================================
+
     const checkAnswer = () => {
           //console.log("checking answers!")
           console.log('roaor')
         //console.log(playersAnswer)
-        const resultCorrectAnswer = correctAnswer.filter(element => playersAnswer.includes(element));
+        const resultCorrectAnswer = allCorrectAnswer.filter(element => playersAnswer.includes(element));
         //console.log(resultCorrectAnswer)
         updateResult(resultCorrectAnswer.length);
         console.log("correct answer stat")
@@ -229,15 +260,7 @@ const QuizSection = ({category}) => {
 
     }
 
-
-    const prevQuestion = () => {
-        if(currentPage !== 1) {
-            updateCurrentPage(currentPage-1);
-            callingFocus();
-        }
-       
-        updateSelected(playersAnswer[currentPage-2]);
-    }
+     // RENDER THE COMPONENT ===========================================
 
 
     return <>
@@ -251,7 +274,9 @@ const QuizSection = ({category}) => {
                 style={{position:"absolute", top: "40%"}}
                 /> : 
                 <section className = "block__section">
+
                     <h4>CATEGORY: {category.toUpperCase()}</h4>
+                    <h5>{currentPage} / 10</h5>
                     {currentData.map((data, index) => {
                         const entities = {
                             "&#039;": "'",

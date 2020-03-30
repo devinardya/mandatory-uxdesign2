@@ -156,6 +156,10 @@
     .block__stats--button > button {
         margin: 0;
     }
+
+    .block__stats--button > button:focus-within {
+        outline: none;
+    }
 }
 
 @media only screen and (max-width: 345px) {
