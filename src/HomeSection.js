@@ -38,13 +38,14 @@ const HomeSection = () => {
 
 
     return <section className = "block__home__section">
-                <h3>Choose one from three categories below and see how many correct answers you can get out of 10 questions!</h3>
+                <h3 ref={inputRef} tabIndex="0">Choose one from three categories below and see how many correct answers you can get out of 10 questions!</h3>
                 <div className="block__home__section__figures">
-                    <label className="block__home__section__figures-input" ref={inputRef} >
+                    <label className="block__home__section__figures-input"  >
                         <input type="radio" 
                                name="category" 
                                checked={selected === "movie"} 
                                value={"movie"} 
+                               aria-label="category movie"
                                onChange={onChange}
                                />
                         <figure className="block__home__section__figures-input-fake">
@@ -57,6 +58,7 @@ const HomeSection = () => {
                                name="category" 
                                checked={selected === "music"} 
                                value={"music"}  
+                               aria-label="category music"
                                onChange={onChange} 
                                />
                         <figure className="block__home__section__figures-input-fake">
@@ -69,6 +71,7 @@ const HomeSection = () => {
                                name="category" 
                                checked={selected === "books"} 
                                value={"books"}  
+                               aria-label="category books"
                                onChange={onChange}
                                />
                         <figure className="block__home__section__figures-input-fake">

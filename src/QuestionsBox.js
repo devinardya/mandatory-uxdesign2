@@ -17,7 +17,7 @@ const QuestionBox = ({data, selected, entities, nextQuestion, prevQuestion, curr
 
     return <>
             <div className="block__section__questionBox" key={index} >
-                <h3 ref={inputRef}>{data.question.replace(/&#?\w+;/g, match => entities[match])}</h3>
+                <h3 ref={inputRef} tabIndex="0">{data.question.replace(/&#?\w+;/g, match => entities[match])}</h3>
                 <form className="block__section__questionBox-answers" >
                     {data.answers.map((answer, idx)=> {
                         return <label className={selected === answer ? "block__section__questionBox-answers-indiv-checked" : "block__section__questionBox-answers-indiv"} 

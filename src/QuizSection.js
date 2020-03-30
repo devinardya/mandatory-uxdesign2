@@ -236,7 +236,7 @@ const QuizSection = ({category}) => {
                 style={{position:"absolute", top: "40%"}}
                 /> : 
                 <section className = "block__section">
-                    <h4 ref={inputRef}>CATEGORY: {category.toUpperCase()}</h4>
+                    <h4 ref={inputRef} tabIndex="0">CATEGORY: {category.toUpperCase()}</h4>
                     {currentData.map((data, index) => {
                         const entities = {
                             "&#039;": "'",

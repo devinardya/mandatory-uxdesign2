@@ -17,6 +17,10 @@
     font-weight: normal;
 }
 
+.block__home__section > h3:focus-within {
+    outline: 1px dashed #D56F85;
+}
+
 .block__home__section__figures {
     display: flex;
     flex-flow: row wrap;
