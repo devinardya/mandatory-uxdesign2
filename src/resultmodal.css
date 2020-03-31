@@ -42,6 +42,11 @@
     margin: 0;
 }
 
+.block__modalContainer__dialogBox > span {
+    visibility: hidden;
+    height: 0;
+}
+
 .block__modalContainer--nav > button {
     width: 166px;
     height: 40px;
