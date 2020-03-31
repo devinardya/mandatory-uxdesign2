@@ -89,3 +89,37 @@ h1, h2, h3, h4, span, div {
     bottom: 0px;
   }
 }
+
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 823px) 
+  and (-webkit-min-device-pixel-ratio: 3)
+  and (orientation: landscape) { 
+
+    .App {
+      height: auto;
+    }
+  
+    .block__footer,
+    .block__footer__figure {
+      position: static;
+      bottom: 0px;
+    }
+
+}
+
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 731px) 
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: landscape) { 
+    .App {
+      height: auto;
+    }
+  
+    .block__footer,
+    .block__footer__figure {
+      position: static;
+      bottom: 0px;
+    }
+}

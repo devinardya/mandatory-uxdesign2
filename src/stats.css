@@ -201,3 +201,27 @@
 
     
 }
+
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 823px) 
+  and (-webkit-min-device-pixel-ratio: 3)
+  and (orientation: landscape) { 
+    .block__stats__mainBox--percentageBox { 
+        height: 50%;
+        margin-bottom: 60px;
+    }
+}
+
+
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 731px) 
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: landscape) { 
+  
+    .block__stats__mainBox--percentageBox { 
+        height: 50%;
+        margin-bottom: 60px;
+    }
+}
