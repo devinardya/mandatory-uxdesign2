@@ -77,7 +77,7 @@
 
 .block__modalContainer--nav > button:first-of-type:hover,
 .block__modalContainer--nav > button:first-of-type:focus {
-    background-color: #3a3a3a;
+    background-color: #BE3459;
     color: #fff;
     cursor: pointer;
 }

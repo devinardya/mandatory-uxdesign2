@@ -205,6 +205,8 @@ const QuizSection = ({category}) => {
             callingFocus();
             callingBlur();
         }
+
+        
         updateSelected(playersAnswer[currentPage])
     }
 
@@ -224,8 +226,13 @@ const QuizSection = ({category}) => {
     // FUNCTION TO CHECK PLAYER'S ANSWER AND SAVE ALL THE STATS INTO THE LOCAL STORAGE ===========================================
 
     const checkAnswer = () => {
-     
-        const resultCorrectAnswer = allCorrectAnswer.filter(element => playersAnswer.includes(element));
+
+        //console.log(selected)
+        let copyAnswers = [...playersAnswer, selected]
+        //console.log(copyAnswers)
+        
+      
+        const resultCorrectAnswer = allCorrectAnswer.filter(element => copyAnswers.includes(element));
         updateResult(resultCorrectAnswer.length);
 
         // SAVING DATA TO LOCAL STORAGE
