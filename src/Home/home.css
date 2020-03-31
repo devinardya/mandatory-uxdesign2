@@ -12,13 +12,13 @@
 .block__home__section > h3 {
     font-size: 20px;
     color: #737373;
-    width: 70%;
+    width: 60%;
     margin: 30px 0 0 0;
     font-weight: normal;
+    font-weight: bold;
 }
 
 .block__home__section > h3:focus {
-    font-weight: bold;
     color: #D56F85;
 }
 
@@ -103,6 +103,11 @@
 }
 
 @media only screen and (max-width: 800px) {
+
+    .block__home__section > h3 {
+        width: 90%;
+    }
+    
     .block__home__section__figures-input-fake > img {
         width: 20vw;
     }
@@ -116,6 +121,10 @@
 @media only screen and (max-width: 500px) { 
     .block__home__section {
         justify-content: flex-start;
+    }
+
+    .block__home__section > h3 {
+        width: 90%;
     }
 
     .block__home__section__figures {

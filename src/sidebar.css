@@ -80,7 +80,7 @@
   }
   
   .Sidebar__mask:focus-within {
-    box-shadow: inset 0px 0px 0px 4px cyan;
+    box-shadow: inset 0px 0px 0px 4px #C85876;
   }
   
   .Sidebar__mask-button {

@@ -36,10 +36,10 @@
     margin-bottom: 10px;
     width: 65%;
     height: 90px;
+    font-weight: bold;
 }
 
 .block__section__questionBox > h3:focus {
-    font-weight: bold;
     color: #D56F85;
 }
 

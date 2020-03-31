@@ -36,6 +36,7 @@
 
 .block__header--nav > h4 {
     color: #737373;
+    margin-right: 6px;
 }
 
 .block__header--nav--link:hover {

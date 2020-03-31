@@ -43,7 +43,8 @@ class Header extends React.PureComponent {
                             <header className = "block__header-other">
                                 {renderHeader}
                                 <nav className="block__header--nav">
-                                    <h4>QUIZ MASTER //</h4>
+                                    <h4>QUIZ MASTER</h4>
+                                    <span>|</span>
                                     <Link to="/" className="block__header--nav--link" aria-label="back to home">HOME</Link>
                                     <button onClick={this.props.onClickMenuButton} aria-label="Open menu" className="Header__menu-button">
                                         <i className="Header__menu-icon material-icons" aria-hidden="true" >menu</i>
@@ -58,7 +59,8 @@ class Header extends React.PureComponent {
                             <header className = "block__header-other">
                                 {renderHeader}
                                 <nav className="block__header--nav">
-                                    <h4>GAME STATS //</h4>
+                                    <h4>GAME STATS</h4>
+                                    <span>|</span>
                                     <Link to="/" className="block__header--nav--link" aria-label="back to home">HOME</Link>
                                     <button onClick={this.props.onClickMenuButton} aria-label="Open menu" className="Header__menu-button">
                                         <i className="Header__menu-icon material-icons" aria-hidden="true" >menu</i>
@@ -73,7 +75,8 @@ class Header extends React.PureComponent {
                             <header className = "block__header-other">
                                 {renderHeader}
                                 <nav className="block__header--nav">
-                                    <h4>ABOUT GAME //</h4>
+                                    <h4>ABOUT GAME</h4>
+                                    <span>|</span>
                                     <Link to="/" className="block__header--nav--link" aria-label="back to home">HOME</Link>
                                     <button onClick={this.props.onClickMenuButton} aria-label="Open menu" className="Header__menu-button">
                                         <i className="Header__menu-icon material-icons" aria-hidden="true" >menu</i>

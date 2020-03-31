@@ -32,11 +32,11 @@ const Stats = () => {
                             <div className="block__stats__mainBox">
                                 <article className="block__stats__mainBox--statsBox">
                                     <h4>Game Played</h4>
-                                    <p>{playedGames$.value < 10 || playedGames$.value === 0 ? "0" + playedGames$.value : playedGames$.value}</p>
+                                    <p>{playedGames$.value}</p>
                                     <h4>Correct Answers</h4>
-                                    <p>{correctAnswers$.value < 10 || correctAnswers$.value === 0 ? "0" + correctAnswers$.value : correctAnswers$.value}</p>
+                                    <p>{correctAnswers$.value}</p>
                                     <h4>Incorrect Answers</h4>
-                                    <p>{incorrectAnswers$.value < 10 || incorrectAnswers$.value === 0 ? "0" + incorrectAnswers$.value : incorrectAnswers$.value}</p>
+                                    <p>{incorrectAnswers$.value}</p>
                                 </article>
                                 <article className="block__stats__mainBox--percentageBox">
                                     <div className="block__stats__mainBox--percentageBox--pieChart">
@@ -74,7 +74,7 @@ const Stats = () => {
                                                 100
                                                 ]}
                                             />
-                                        <span className="block__stats__mainbox--percentageBox--span"><p>{correctPercentage$.value === 0 ? "0%" : parseInt(correctPercentage$.value)+"%"}</p></span>
+                                        <span className="block__stats__mainbox--percentageBox--span"><p>{correctPercentage$.value+"%"}</p></span>
                                     </div>
                                     <h4>Correct Answer Percentage</h4>
                                 </article>
