@@ -86,8 +86,7 @@
   .Header__menu-icon {
     font-size: 30px;
   }
-  
- 
+
   
   .Header__menu-button:active {
     opacity: 0.6;
@@ -115,7 +114,8 @@
 }
 
 @media only screen and (max-width: 500px) {
-    .block__header--nav > h4 {
+    .block__header--nav > h4,
+    .block__header--nav > span {
         display: none;
     }
 }

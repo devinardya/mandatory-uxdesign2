@@ -83,6 +83,11 @@
 }
 
 @media only screen and (max-width: 600px) { 
+
+    .block__modalContainer {
+        height: 830px;
+    }
+
     .block__modalContainer__dialogBox {
         width: 80%;
         height: auto;
@@ -98,5 +103,21 @@
 
     .block__modalContainer--nav > button:last-of-type {
         margin-top: 10px;
+    }
+}
+
+@media only screen and (max-width: 420px) { 
+
+    .block__modalContainer__dialogBox {
+        padding: 20px;
+    }
+
+    .block__modalContainer__dialogBox > h2 {
+        font-size: 1.2rem;
+        margin-top: 20px;
+    }
+
+    .block__modalContainer--nav > button:last-of-type {
+        margin-bottom: 20px;
     }
 }

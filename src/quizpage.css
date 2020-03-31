@@ -162,7 +162,7 @@
     border-radius: 30px;
     font-size: 0.8rem;
     background: linear-gradient(to right, #BE3459 50%, #EDA9A9 50%);
-    background-size: 200% 100%;
+    background-size: 201% 99%;
     background-position: right bottom;
     position: relative;
     transition: all 0.2s ease-in;
@@ -185,7 +185,7 @@
     font-size: 0.8rem;
     font-weight: bold;
     background: linear-gradient(to right, #dbdbdb 50%, #3a3a3a 50%);
-    background-size: 200% 100%;
+    background-size: 201% 99%;
     background-position: left bottom;
      position: relative;
     transition: all 0.2s ease-in;
@@ -258,7 +258,7 @@
         margin-bottom: 20px;
     }
 
-   .block__section__next, .block__section__prev {
+   .block__section__next, .block__section__prev, .block__section__prev:disabled {
         width: 100%;
         margin: 5px 0;
     } 
