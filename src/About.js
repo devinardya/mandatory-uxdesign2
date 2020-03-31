@@ -24,25 +24,25 @@ const About = () => {
                             <Sidebar onClose={() => updateSidebarIsOpen(false)} isOpen={sidebarIsOpen} />
                             <section className="block__about">
                                 <figure>
-                                    <img src={AboutImg} alt="about page illustration" />
+                                    <img src={AboutImg} alt="a woman with question marks" />
                                 </figure>
                                 <article>
-                                    <p>Quiz Master is a trivia game using open API from opentdb.com. The Open Trivia Database provides a completely free JSON API for use in programming projects.</p>
+                                    <p>Quiz Master is a trivia game for a programming project that was created by Devina A. Paramita Na using ReactJS and open API from opentdb.com for the trivia questions. The Open Trivia Database provides a completely free JSON API for use in programming projects.</p>
                                     <p>The vector illustrations used in this project are using free license from Freepik, such as: </p>
-                                    <ul>
+                                    <ol>
                                         <li>
-                                        <p>QuestionMark People is <a aria-label="question mark icon designed by freepik" href="http://www.freepik.com">Designed by rawpixel.com / Freepik</a></p>
+                                        <a aria-label="question mark icon designed by rawpixel" href="http://www.freepik.com">QuestionMark People is Designed by rawpixel.com / Freepik</a>
                                         </li>
                                         <li>
-                                        <p>Radio illustration is <a aria-label="radio illustration icon designed by freepik" href="http://www.freepik.com">Designed by rawpixel.com / Freepik</a></p>
+                                        <a aria-label="radio illustration icon designed by rawpixel" href="http://www.freepik.com">Radio illustration is Designed by rawpixel.com / Freepik</a>
                                         </li>
                                         <li>
-                                        <p>Books illustration is <a aria-label="books illustration icon designed by freepik" href="http://www.freepik.com">Designed by rawpixel.com / Freepik</a></p>
+                                        <a aria-label="books illustration icon designed by rawpixel" href="http://www.freepik.com">Books illustration is Designed by rawpixel.com / Freepik</a>
                                         </li>
                                         <li>
-                                        <p>Movie illustration is <a aria-label="movie illustration icon designed by freepik" href="http://www.freepik.com">Designed by gstudioimagen / Freepik</a></p>
+                                        <a aria-label="movie illustration icon designed by gstudioimagen" href="http://www.freepik.com">Movie illustration is Designed by gstudioimagen / Freepik</a>
                                         </li>
-                                    </ul>
+                                    </ol>
                                     </article>
                             </section>
                             <Footer />

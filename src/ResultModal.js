@@ -72,10 +72,10 @@ const Create = ({ result,
                                         :
                                     "Sorry, Your got" + result + "question correct" }
                                 </span>
-                                <nav className="block__modalContainer--nav">
+                                <div role="menu" className="block__modalContainer--nav">
                                     <button aria-label="play again" onClick={restartGame}>Play again</button>
                                     <button aria-label="back to home" onClick={backToHome}>Back to home</button>
-                                </nav>
+                                </div>
                         </div>
                     </FocusTrap>
                 }
