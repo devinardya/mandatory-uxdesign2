@@ -1,6 +1,6 @@
 import { BehaviorSubject } from 'rxjs';
 
-export const playedGames$ = new BehaviorSubject(localStorage.getItem('games') || 0);
+export const playedGames$ = new BehaviorSubject(parseInt(localStorage.getItem('games') || 0));
 
 export function updatePlayedGames(game) {
 	 if (game) {
@@ -11,7 +11,7 @@ export function updatePlayedGames(game) {
 	playedGames$.next(game);
 }
 
-export const correctAnswers$ = new BehaviorSubject(localStorage.getItem('correctAnswers') || 0);
+export const correctAnswers$ = new BehaviorSubject(parseInt(localStorage.getItem('correctAnswers') || 0));
 
 export function updateCorrectAnswersStat(corrAns) {
 	 if (corrAns) {
@@ -22,11 +22,11 @@ export function updateCorrectAnswersStat(corrAns) {
 	correctAnswers$.next(corrAns);
 }
 
-export const incorrectAnswers$ = new BehaviorSubject(localStorage.getItem('incorrectAnswers') || 0);
+export const incorrectAnswers$ = new BehaviorSubject(parseInt(localStorage.getItem('incorrectAnswers') || 0));
 
 export function updateIncorrectAnswersStat(incorrAns) {
 	 if (incorrAns) {
-         console.log(incorrAns);
+         //console.log(incorrAns);
 		localStorage.setItem('incorrectAnswers', incorrAns);
 	} else {
 		localStorage.removeItem('incorrectAnswers');

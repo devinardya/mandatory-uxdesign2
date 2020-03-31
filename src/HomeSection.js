@@ -8,16 +8,16 @@ const HomeSection = () => {
 
     const [selected, updateSelected] = useState("");
     const [startGame, updateStartGame] = useState(false);
-    const inputRef = useRef(null);
+    const homeRef = useRef(null);
 
     const onChange = (e) => {
-        console.log(e.target.value)
+        //console.log(e.target.value)
         updateSelected(e.target.value)
         
     }
 
     useEffect( () => {
-        inputRef.current.focus();
+        homeRef.current.focus();
     },[])
 
   
@@ -38,7 +38,7 @@ const HomeSection = () => {
 
 
     return <section className = "block__home__section">
-                <h3 ref={inputRef} tabIndex="0">Choose one from three categories below and see how many correct answers you can get out of 10 questions!</h3>
+                <h3 ref={homeRef} tabIndex="0">Choose one from three categories below and see how many correct answers you can get out of 10 questions!</h3>
                 <div className="block__home__section__figures">
                     <label className="block__home__section__figures-input"  >
                         <input type="radio" 

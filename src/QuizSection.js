@@ -53,7 +53,7 @@ const QuizSection = ({category}) => {
     // ONCHANGE FUNCTION TO GET THE SELECTED ANSWER ===========================================
 
     const onChange = (data) => {
-        console.log(data)
+        //console.log(data)
         updateSelected(data)
     }
 
@@ -77,7 +77,6 @@ const QuizSection = ({category}) => {
 
     useEffect(() => {
         const subscribe = incorrectAnswers$.subscribe(inCorrAns => {
-            console.log('woho, i am here', inCorrAns)
             updateIncorrAnsState(inCorrAns);
         })
 
@@ -138,7 +137,7 @@ const QuizSection = ({category}) => {
         
                      return newDocuments.push(newData);
                })
-               console.log(copyData);
+               //console.log(copyData);
                 copyData.map( data => {
                 return allCorrectAnswer.push(data.correct_answer)
                 })
@@ -225,20 +224,15 @@ const QuizSection = ({category}) => {
     // FUNCTION TO CHECK PLAYER'S ANSWER AND SAVE ALL THE STATS INTO THE LOCAL STORAGE ===========================================
 
     const checkAnswer = () => {
-          //console.log("checking answers!")
-          console.log('roaor')
-        //console.log(playersAnswer)
+     
         const resultCorrectAnswer = allCorrectAnswer.filter(element => playersAnswer.includes(element));
-        //console.log(resultCorrectAnswer)
         updateResult(resultCorrectAnswer.length);
-        console.log("correct answer stat")
 
         // SAVING DATA TO LOCAL STORAGE
             // CORRECT ANSWER STAT
         let copyCorrAns = correctAnswerStat;
         copyCorrAns += resultCorrectAnswer.length;
         updateCorrectAnswersStat(copyCorrAns);
-        console.log('roaor3')
 
             // INCORRECT ANSWER STAT  
        
@@ -246,23 +240,20 @@ const QuizSection = ({category}) => {
         let iTemp = 10 - resultCorrectAnswer.length;
         copyInCorrAns += parseInt(iTemp);
         updateIncorrectAnswersStat(copyInCorrAns);
-        console.log('roaor3')
 
             // GAME STAT
-        console.log(playedGamesStat);  
+        //console.log(playedGamesStat);  
         let copyPlayedGames = playedGamesStat;
         copyPlayedGames++;
         updatePlayedGames(copyPlayedGames)
-        console.log('roaor4')
 
             // CORRECT PERCENTAGE
-        console.log(correctPercentStat);  
+        //console.log(correctPercentStat);  
         let copyCorrPercent = correctPercentStat;
         copyCorrPercent = ((copyCorrAns / (copyPlayedGames*10)) * 100)
         updateCorrectPercentage(Math.round(copyCorrPercent))
 
         updateResultModalStatus(true);
-        console.log('roaor5')
 
     }
 
