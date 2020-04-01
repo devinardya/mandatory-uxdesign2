@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState , useRef, useEffect} from 'react';
 import './stats.css';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import PieChart from 'react-minimal-pie-chart';
@@ -12,6 +12,11 @@ import Sidebar from './Sidebar';
 const Stats = () => {
 
     const [sidebarIsOpen, updateSidebarIsOpen] = useState(false);
+    const statsRef = useRef(null);
+
+    useEffect( () => {
+        statsRef.current.focus();
+    }, [])
 
     const clearStat = () => {
         localStorage.clear();
@@ -29,7 +34,7 @@ const Stats = () => {
                          />
                          <Sidebar onClose={() => updateSidebarIsOpen(false)} isOpen={sidebarIsOpen} />
                         <section className="block__stats">
-                            <div className="block__stats__mainBox">
+                            <div className="block__stats__mainBox" ref={statsRef} tabIndex="0">
                                 <article className="block__stats__mainBox--statsBox">
                                     <h4>Game Played</h4>
                                     <p>{playedGames$.value}</p>
@@ -79,7 +84,6 @@ const Stats = () => {
                                     <h4>Correct Answer Percentage</h4>
                                 </article>
                             </div>
-                            
                                 <div className="block__stats--button">
                                     <button aria-label="reset stats" onClick={clearStat}>Reset Stats</button>
                                 </div>

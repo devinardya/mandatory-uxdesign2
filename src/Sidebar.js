@@ -1,9 +1,15 @@
-import React from 'react';
+import React, {useRef, useEffect} from 'react';
 import FocusTrap from 'focus-trap-react';
 import { Link } from 'react-router-dom';
 import './sidebar.css';
 
 function Sidebar({ isOpen, onClose }) {
+
+    const sidebarRef = useRef(null);
+
+    useEffect( () => {
+      sidebarRef.current.focus();
+    }, [])
 
     let className = "Sidebar";
   
@@ -25,7 +31,7 @@ function Sidebar({ isOpen, onClose }) {
                 <button aria-label="Close menu" className="Sidebar__mask-button"></button>
               </label>
             )}
-            <div className={className}>
+            <div className={className} role="dialog" ref={sidebarRef} tabIndex="0" aria-label="sidebar menu">
               <ul className="Sidebar__menu">
                     <li className="Sidebar__menu-item">
                         <Link to="/" 
