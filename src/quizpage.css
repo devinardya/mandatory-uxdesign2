@@ -73,16 +73,6 @@
     cursor: pointer;
 }
 
-.block__section__questionBox-answers-indiv:focus-within
- {
-    outline: 1px dashed #D56F85;
-    cursor: pointer;
-}
-
-.block__section__questionBox-answers-indiv-checked:focus-within {
-    outline: 1px dashed rgb(202, 202, 202);
-    cursor: pointer;
-}
 
 .block__section__questionBox-answers-indiv-checked {
     margin: 10px 0;
@@ -136,6 +126,12 @@
     font-size: 24px;
     color: #a5a5a5;
     padding: 5px;
+}
+
+.block__section__questionBox-answers-indiv:focus-within,
+.block__section__questionBox-answers-indiv-checked:focus-within  {
+    border: 1px dashed #D56F85;
+    cursor: pointer;
 }
 
 .block__section__questionBox-answers-indiv > input[type="radio"]:checked ~ .block__section__questionBox-answers-indiv-fakedisplay::before,
@@ -262,6 +258,14 @@
         width: 100%;
         margin: 5px 0;
     } 
+
+    .block__section__next {
+        order: 1;
+    }
+
+    .block__section__prev {
+        order: 2;
+    }
 
     .block__section__questionBox > h3 {
         margin-bottom: 30px;
