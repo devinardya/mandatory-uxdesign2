@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from 'react-router-dom';
-import Logo from "./design/quiz-logo.svg";
+import Logo from "./design/quizmaster-logo.svg";
 import './header.css';
 
 class Header extends React.PureComponent {

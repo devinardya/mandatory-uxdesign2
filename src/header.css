@@ -45,12 +45,12 @@
 
 .block__header-home > figure > .block__header__logo {
     margin-top: 20px;
-    width: 70%;
+    width: 50%;
 }
 
 .block__header-other > figure > .block__header__logo {
     margin-top: 10px;
-    width: 40%;
+    width: 20%;
 }
 
 .block__header--nav--link:focus-within,

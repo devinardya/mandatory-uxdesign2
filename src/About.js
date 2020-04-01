@@ -32,7 +32,7 @@ const About = () => {
                                 <figure>
                                     <img src={AboutImg} alt="a woman with question marks" />
                                 </figure>
-                                <article ref={aboutRef} tabIndex="0" aria-label="About quiz master" aria-labelledby="aboutText" aria-describeby="aboutText2">
+                                <article ref={aboutRef} tabIndex="0" aria-label="About quiz master" aria-labelledby="aboutText" aria-describedby="aboutText2">
                                     <p id="aboutText">Quiz Master is a trivia game for a programming project that was created by Devina Paramita Na using ReactJS and open API from opentdb.com for the trivia questions. The Open Trivia Database provides a completely free JSON API for use in programming projects.</p>
                                     <p id="aboutText2">The vector illustrations used in this project are using free license from Freepik, such as: </p>
                                     <ol id="aboutText2">
