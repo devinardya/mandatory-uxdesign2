@@ -94,13 +94,20 @@ const QuizSection = ({category}) => {
 
     // FUNCTION TO CHANGE THE LOADER STATUS ===========================================
 
-    const activateLoader = (status) => {
-        updateLoaderActive(status);
-    }
+    const loadingSpinner = useCallback( () => {
+        updateLoaderActive(true);
+        setTimeout( () => {
+            updateLoaderActive(false);
+        },3000)
+    }, [])
+    
 
     // FUNCTION TO GET THE DATA FROM API ===========================================
 
     const getData = useCallback( () => {
+        
+        loadingSpinner();
+
         let cat;
         if(category === "music") {
             cat = 12;
@@ -118,8 +125,7 @@ const QuizSection = ({category}) => {
                    {cancelToken: source.token} 
                    )
         .then(response => {
-            updateLoaderActive(true);
-            setTimeout( () => {
+                
                 let copyData = [...response.data.results];
             
                 let newDocuments = [];
@@ -143,9 +149,8 @@ const QuizSection = ({category}) => {
                 })
 
                 updateAllCorrectAnswer(allCorrectAnswer);
-                updateLoaderActive(false);
                 updateQuizData(newDocuments);
-            }, 2000)
+           
         })
         .catch(error => {
             console.log(error)
@@ -155,7 +160,7 @@ const QuizSection = ({category}) => {
             
             source.cancel("canceling in cleanup")
         }
-    }, [updateQuizData, category ])
+    }, [updateQuizData, category, loadingSpinner ])
 
     // USE EFFECT TO CALL THE GETDATA FUNCTION 1 TIME ===========================================
 
@@ -181,16 +186,10 @@ const QuizSection = ({category}) => {
     // FUNCTION TO ACTIVATE THE LOADER RIGHT AWAY THEN THE PAGE LOAD THE FIRST TIME ===========================================
 
     useEffect( () => {
-        activateLoader(true);
-        const activeLoad = setTimeout( () => {
-            activateLoader(false);
-        },3000)
+        loadingSpinner();
+    }, [loadingSpinner])
 
-        return () => {
-            clearTimeout(activeLoad);
-        }
-    }, [])
-    
+   
     // FUNCTION TO RENDER THE NEXT QUESTION ===========================================
    
      const nextQuestion = () => {
@@ -276,8 +275,8 @@ const QuizSection = ({category}) => {
                         width={100}
                         timeout={5000}
 
-                        /> : 
-                
+                    /> 
+                        : 
                     <>
                     <h4>CATEGORY: {category.toUpperCase()}</h4>
                     <h5>{currentPage} / 10</h5>
