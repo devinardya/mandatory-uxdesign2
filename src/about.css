@@ -17,7 +17,7 @@
 
 .block__about > figure {
     width: 40%;
-    z-index: 99999;
+    z-index: 999;
 }
 
 .block__about > figure > img {

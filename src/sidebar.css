@@ -9,7 +9,7 @@
     box-shadow: 7px 0px 17px 0px rgba(0,0,0,0.75); 
     transform: translateX(0);
     transition: all 0.2s linear;
-    z-index: 9999;
+    z-index: 99999;
     background-image: url("./design/question-icon.svg");
     background-repeat: no-repeat;
     background-position: bottom;
@@ -76,7 +76,7 @@
     display: block;
     height: 100%;
     box-sizing: border-box;
-    z-index: 999;
+    z-index: 9999;
   }
   
   .Sidebar__mask:focus-within {
