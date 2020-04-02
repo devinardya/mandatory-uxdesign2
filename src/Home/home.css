@@ -159,11 +159,11 @@
     }
 
     .block__home__section__figures {
-        flex-flow: column wrap;
+        flex-flow: row wrap;
     }
 
     .block__home__section__figures-input-fake > img {
-        width: 40vw;
+        width: 24vw;
     }
 
     .block__home__section__figures-input {
@@ -191,11 +191,11 @@
     }
 
     .block__home__section__figures {
-        flex-flow: column wrap;
+        flex-flow: row wrap;
     }
 
     .block__home__section__figures-input-fake > img {
-        width: 40vw;
+        width: 24vw;
     }
 
     .block__home__section__figures-input {

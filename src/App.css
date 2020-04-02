@@ -106,6 +106,13 @@ h1, h2, h3, h4, span, div {
       bottom: 0px;
     }
 
+    .block__footer > p {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
 }
 
 @media only screen 
@@ -121,5 +128,12 @@ h1, h2, h3, h4, span, div {
     .block__footer__figure {
       position: static;
       bottom: 0px;
+    }
+
+    .block__footer > p {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
     }
 }
