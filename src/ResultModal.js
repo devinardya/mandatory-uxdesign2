@@ -20,14 +20,18 @@ const Create = ({ result,
     useEffect( () => {
         const timer = setTimeout( () => {
             updateLoadingLoader(false)
-            resultRef.current.focus();
-        }, 1000)
+        }, 3000)
 
         return () => {
             clearTimeout(timer);    
         }
     }, []);
 
+    useEffect( () => {
+        if(!loadingLoader){
+            resultRef.current.focus();
+        }
+    }, [])
 
     const backToHome = () => {
         updateBackHome(true);
@@ -62,12 +66,14 @@ const Create = ({ result,
                         <div className = "block__modalContainer__dialogBox" 
                              role="dialog" 
                              aria-label="Quiz result" 
-                             aria-describedby="dialog1Desc" >
+                             aria-describedby="dialog1Desc"
+                             ref={resultRef} 
+                             tabIndex="-1"  >
                                 <h2 >{result !== 0 ? "CONGRATULATION" : "OOPPS!!"}</h2>
                                 <h5 >You answered</h5>
                                 <h1 >{result}/10</h1>
                                 <h5 >{result <= 1 ? "question correct" : "questions correct"}</h5>
-                                <span ref={resultRef} id="dialog1Desc" role="textbox">
+                                <span id="dialog1Desc" role="textbox">
                                     { result !== 0 ? result > 1 ? "Congratulation, Your got" + result + "questions correct" : "Congratulation, Your got" + {result} + "question correct"
                                         :
                                     "Sorry, Your got" + result + "question correct" }
