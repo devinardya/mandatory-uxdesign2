@@ -15,7 +15,7 @@ const About = () => {
 
     useEffect( () => {
         aboutRef.current.focus();
-    }, [])
+    }, [aboutRef])
 
 
     return <>   

@@ -18,7 +18,7 @@ const HomeSection = () => {
 
     useEffect( () => {
         homeRef.current.focus();
-    },[])
+    },[homeRef])
 
   
 

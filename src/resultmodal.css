@@ -32,17 +32,24 @@
     box-shadow: 0px 0px 21px 0px rgba(138,138,138,1);   
 }
 
-.block__modalContainer__dialogBox > h2 {
+.block__modalContainer__dialogBox--container {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.block__modalContainer__dialogBox--container > h2 {
     color: #C85876;
     margin-bottom: 20px;
 }
 
-.block__modalContainer__dialogBox > h1 {
+.block__modalContainer__dialogBox--container > h1 {
     color: #C85876;
     margin: 0;
 }
 
-.block__modalContainer__dialogBox > span {
+.block__modalContainer__dialogBox--container > span {
     visibility: hidden;
     height: 0;
 }

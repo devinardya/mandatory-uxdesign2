@@ -36,11 +36,11 @@ const QuizSection = ({category}) => {
             if(!loaderActive){
                 inputRef.current.focus();
             }
-        }, 3000)
+        }, 0)
         return () => {
             clearTimeout(focusTimeout);
         }
-    },[loaderActive]);
+    },[loaderActive, inputRef]);
 
     const callingFocus = () => {
         inputRef.current.focus();

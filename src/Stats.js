@@ -16,7 +16,7 @@ const Stats = () => {
 
     useEffect( () => {
         statsRef.current.focus();
-    }, [])
+    }, [statsRef])
 
     const clearStat = () => {
         localStorage.clear();

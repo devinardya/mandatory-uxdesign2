@@ -9,7 +9,7 @@ function Sidebar({ isOpen, onClose }) {
 
     useEffect( () => {
       sidebarRef.current.focus();
-    }, [])
+    }, [sidebarRef])
 
     let className = "Sidebar";
   

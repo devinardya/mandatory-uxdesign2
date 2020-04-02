@@ -30,13 +30,13 @@ const Create = ({ result,
     }, []);
 
     useEffect( () => {
-        console.log("ITS HERE")
+        
         if (!loadingLoader) {
-            console.log("ITS THERE")
+            
             resultRef.current.focus();
-            console.log(resultRef)
+            
         }
-    }, [loadingLoader]) 
+    }, [loadingLoader, resultRef]) 
 
     const backToHome = () => {
         updateBackHome(true);
@@ -69,27 +69,32 @@ const Create = ({ result,
                     :
                     <FocusTrap active={resultModalStatus}>
                         <div className = "block__modalContainer__dialogBox" 
-                             role="dialog" 
+                             role="dialog" /* 
                              aria-label="Quiz result" 
-                             aria-describedby="dialog1Desc"
+                             aria-describedby="dialog1Desc" */
                              id="quiz-result"
                              >
-                                <h2 >{result !== 0 ? "CONGRATULATION" : "SORRY!!"}</h2>
-                                <h5 >You answered</h5>
-                                <h1 >{result}/10</h1>
-                                <h5 >{result <= 1 ? "question correct" : "questions correct"}</h5>
-                                <span id="dialog1Desc" 
-                                      role="textbox"
+                                 <div className="block__modalContainer__dialogBox--container" 
                                       ref={resultRef} 
-                                      tabIndex="0" 
-                                      >
-                                    { result !== 0 ? result > 1 ? "Congratulation, Your got" + result + "questions correct" : "Congratulation, Your got" + result + "question correct"
-                                        :
-                                    "Sorry, Your got" + result + "question correct" }
-                                </span>
-                                <div role="menu" className="block__modalContainer--nav">
-                                    <button aria-label="play again" onClick={restartGame}>Play again</button>
-                                    <button aria-label="back to home" onClick={backToHome}>Back to home</button>
+                                      tabIndex="0"
+                                      aria-label="Quiz result"
+                                      aria-describedby="dialog1Desc">
+                                    <h2 >{result !== 0 ? "CONGRATULATION" : "SORRY!!"}</h2>
+                                    <h5 >You answered</h5>
+                                    <h1 >{result}/10</h1>
+                                    <h5 >{result <= 1 ? "question correct" : "questions correct"}</h5>
+                                    <span id="dialog1Desc" 
+                                        role="textbox"
+                                        
+                                        >
+                                        { result !== 0 ? result > 1 ? "Congratulation, You answered" + result + "questions correct" : "Congratulation, You answered" + result + "question correct"
+                                            :
+                                        "Sorry, Your got" + result + "question correct" }
+                                    </span>
+                                    <div role="menu" className="block__modalContainer--nav">
+                                        <button aria-label="play again" onClick={restartGame}>Play again</button>
+                                        <button aria-label="back to home" onClick={backToHome}>Back to home</button>
+                                    </div>
                                 </div>
                         </div>
                     </FocusTrap>
