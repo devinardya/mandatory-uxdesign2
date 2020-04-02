@@ -60,7 +60,8 @@ const QuestionBox = ({ data,
                
                 <button ref={nextButtonRef} className="block__section__next" 
                         aria-label={currentPage === 10 ? "Check Result" : "Next Question"}
-                        onClick={ selected ? currentPage === 10 ? checkAnswer : nextQuestion : null } >
+                        onClick={ selected ? currentPage === 10 ? checkAnswer : nextQuestion : null }
+                        >
                     {currentPage === 10 ? "Check Result" : "Next Question"}
                     <MdNavigateNext 
                         size="24px" 

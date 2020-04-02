@@ -307,6 +307,7 @@ const QuizSection = ({category}) => {
                                 playersAnswer= {playersAnswer}
                                 inputRef = {inputRef}
                                 nextButtonRef = {nextButtonRef}
+                                
                             />
                         )
                         
@@ -318,6 +319,7 @@ const QuizSection = ({category}) => {
                                                         updatePlayerAnswer = {updatePlayerAnswer}
                                                         updateCurrentPage = {updateCurrentPage}
                                                         updateResultModalStatus = {updateResultModalStatus}
+                                                        resultModalStatus = {resultModalStatus}
                                                         />}
                         </>
                 }

@@ -210,6 +210,14 @@
     outline: 1px dashed rgb(180, 180, 180);
 }
 
+@media (hover:hover) {
+    .block__section__next:hover {
+        background-position: left bottom;
+        color: #fff;
+        cursor: pointer;
+    }
+  }
+
 
 @media only screen and (max-width: 820px) {
 
@@ -231,7 +239,6 @@
         width: 95%;
     }
 
-   
 }
 
 @media only screen and (max-width: 500px) {
