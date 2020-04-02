@@ -111,6 +111,7 @@ h1, h2, h3, h4, span, div {
       bottom: 10px;
       left: 50%;
       transform: translateX(-50%);
+      width: 100%;
     }
 
 }
@@ -135,5 +136,6 @@ h1, h2, h3, h4, span, div {
       bottom: 10px;
       left: 50%;
       transform: translateX(-50%);
+      width: 100%;
     }
 }
