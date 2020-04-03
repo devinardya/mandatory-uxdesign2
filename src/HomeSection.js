@@ -38,7 +38,7 @@ const HomeSection = () => {
 
 
     return <section className = "block__home__section">
-                <h3 ref={homeRef} tabIndex="0">Choose one from the categories below and see how many correct answers you can get out of 10 questions!</h3>
+                <h3 ref={homeRef} tabIndex="0">Choose one from the categories below and see how many questions you can answer correctly out of 10 questions!</h3>
                 <div className="block__home__section__figures">
                     <label className="block__home__section__figures-input"  >
                         <input type="radio" 
