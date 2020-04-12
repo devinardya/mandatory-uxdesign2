@@ -1,12 +1,12 @@
 import React, { useState , useRef, useEffect} from 'react';
 import './stats.css';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
-import PieChart from 'react-minimal-pie-chart';
 import FooterImg from './FooterImg';
 import { playedGames$, correctPercentage$, correctAnswers$, incorrectAnswers$ } from './store';
 import Header from "./Header";
 import Footer from "./Footer";
 import Sidebar from './Sidebar';
+import Donut from './Donut';
 
 
 const Stats = () => {
@@ -45,41 +45,14 @@ const Stats = () => {
                                 </article>
                                 <article className="block__stats__mainBox--percentageBox">
                                     <div className="block__stats__mainBox--percentageBox--pieChart">
-                                        <PieChart
-                                                animate={true}
-                                                animationDuration={1500}
-                                                animationEasing="ease-out"
-                                                cx={50}
-                                                cy={50}
-                                                data={[
-                                                {
-                                                    color: '#D56F85',
-                                                    title: 'One',
-                                                    value: parseInt(correctPercentage$.value)
-                                                },
-                                                {
-                                                    color: '#dddddd',
-                                                    title: 'Two',
-                                                    value: 100 - parseInt(correctPercentage$.value)
-                                                }
-                                                ]}
-                                                label={false}
-                                                labelPosition={50}
-                                                lengthAngle={360}
-                                                lineWidth={15}
-                                                onClick={undefined}
-                                                onMouseOut={undefined}
-                                                onMouseOver={undefined}
-                                                paddingAngle={5}
-                                                radius={50}
-                                                rounded={false}
-                                                startAngle={0}
-                                                viewBoxSize={[
-                                                100,
-                                                100
-                                                ]}
+                                            <Donut 
+                                                playedGames$ = {playedGames$.value}
+                                                correctAnswers$ = {correctAnswers$.value}
+                                                incorrectAnswers$ = {incorrectAnswers$.value}
                                             />
-                                        <span className="block__stats__mainbox--percentageBox--span"><p>{correctPercentage$.value+"%"}</p></span>
+                                        <span className="block__stats__mainbox--percentageBox--span">
+                                            <p>{correctPercentage$.value+"%"}</p>
+                                        </span>
                                     </div>
                                     <h4>Correct Answer Percentage</h4>
                                 </article>

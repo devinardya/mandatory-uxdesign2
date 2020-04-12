@@ -265,7 +265,6 @@ const QuizSection = ({category}) => {
 
      // RENDER THE COMPONENT ===========================================
 
-
     return <section className = "block__section">
                 {loaderActive ? 
                     <Loader className="loader"

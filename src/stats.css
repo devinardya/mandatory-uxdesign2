@@ -31,20 +31,20 @@
 }
 
 .block__stats__mainBox--percentageBox { 
-    width: 60%;
+    width: 50%;
     height: 100%;
     display: flex;
     flex-flow: column wrap;
     justify-content: center;
     align-items: flex-start;
-    padding-left: 80px;
+    padding-left: 0px;
 }
 
 .block__stats__mainBox--percentageBox > h4 {
-    margin-top: 40px;
+    margin-top: 20px;
     text-transform: uppercase;
     color: #737373;
-    margin-left: 10px;
+    margin-left:10%;
 }
 
 .block__stats__mainBox--statsBox > h4 {
@@ -90,6 +90,10 @@
 
 .block__stats__mainBox--percentageBox--pieChart {
     position: relative;
+    width: 50%;
+    min-width: 400px;
+    max-width: 630px;
+    text-align: center;
 }
 
 .block__stats__mainbox--percentageBox--span {
@@ -144,6 +148,8 @@
 
     .block__stats__mainBox--percentageBox--pieChart {
         width: 31%;
+        max-width: 400px;
+        min-width: 45%;
     }
    
     .block__stats__mainBox--percentageBox > h4 {
@@ -189,6 +195,12 @@
 
     .block__stats__mainBox--percentageBox--pieChart {
         width: 40%;
+        max-width: 400px;
+        min-width:40%;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        align-items: center;
     }
    
     .block__stats__mainBox--percentageBox > h4 {
