@@ -67,7 +67,7 @@ class Donut extends  React.PureComponent{
                     pie: {
                         expandOnClick: false,       // does not work
                         donut: {
-                            size: '80%',            // inner radius of the donut
+                            size: '75%',            // inner radius of the donut
                             labels: {
                                 show: false,         // inner label (value in the middle of the donut chart)
                             }
@@ -92,11 +92,22 @@ class Donut extends  React.PureComponent{
                     breakpoint: 480,
                     options: {
                       chart: {
-                        width: 200
+                        width: 280
                       },
                       legend: {
                         show: false
-                      }
+                      },
+                      plotOptions: {
+                        pie: {
+                            expandOnClick: false,       // does not work
+                            donut: {
+                                size: '70%',            // inner radius of the donut
+                                labels: {
+                                    show: false,         // inner label (value in the middle of the donut chart)
+                                }
+                            }
+                        }
+                    },
                     }
                   }],
 
